@@ -2,14 +2,29 @@
   "UsersDB": [
     {
       "id": 1,
+      "first_name": "John",
+      "last_name": "Smith",
       "username": "john_smith",
       "email": "johnsmith@gmail.com",
-      "password": "password123"
+      "password": "password123",
+      "member_since": "2022-01-15",
+      "followers": 27,
+      "following": 13
     },
     {
       "id": 2,
+      "first_name": "Emma",
+      "last_name": "Jones",
       "username": "emma_jones",
       "email": "emmajones@gmail.com",
+      "password": "password123"
+    },
+    {
+      "id": 3,
+      "first_name": "Joe",
+      "last_name": "Johnson",
+      "username": "joe_johnson",
+      "email": "joejohnson@gmail.com",
       "password": "password123"
     }
   ]
