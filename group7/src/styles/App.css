@@ -15,8 +15,20 @@ body {
   color: var(--black-color);
 }
 
-/* nav */
+/* content container where the main stuff is */
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
 
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* nav */
 .nav {
   background-color: var(--black-color);
   color: var(--white-color);
