@@ -1,0 +1,89 @@
+/* varialbes */
+
+:root {
+  --primary-color: #40bcf4;
+  --secondary-color: #ff8000;
+  --white-color: #f4f4f4;
+  --black-color: #1b1b1b;
+}
+
+/* global */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+/* content container where the main stuff is */
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* nav */
+.nav {
+  background-color: var(--black-color);
+  color: var(--white-color);
+
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 1rem;
+  height: auto;
+}
+
+.nav-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  z-index: 2;
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+}
+
+.nav ul li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.18s ease, transform 0.12s ease;
+}
+
+.nav ul li a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 1rem;
+  text-decoration: none;
+  color: var(--white-color);
+}
+
+.nav ul li:hover {
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.nav ul a.active {
+  color: var(--primary-color);
+}
