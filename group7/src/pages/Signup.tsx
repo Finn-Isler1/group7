@@ -1,39 +1,67 @@
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
+import {
+  Field,
+  FieldDescription,
+  FieldGroup,
+  FieldLabel,
+  FieldSet,
+} from "@/components/ui/field";
+import { Button } from "@/components/ui/button";
 
 export default function Signup() {
   return (
     <>
-      <h1>LETTERBOXD</h1>
+      <div className="flex justify-center px-4 py-10">
+        <form className="flex w-full max-w-md flex-col gap-4">
+          <h1 className="text-center text-3xl font-bold">LETTERBOXD</h1>
+          <FieldSet>
+            <FieldGroup>
+              {/* Username */}
+              <Field>
+                <FieldLabel htmlFor="username">Username</FieldLabel>
+                <Input id="username" type="text" required />
+              </Field>
 
-      <h1>LETTERBOXD</h1>
+              {/* Email Address */}
+              <Field className="flex flex-col">
+                <FieldLabel htmlFor="email">Email Address</FieldLabel>
+                <Input id="username" type="text" required />
+              </Field>
 
-      <p>Username:</p>
-      <Input type="username" />
-      <p>Email Address:</p>
-      <Input type="email" />
-      <p>Phone Number:</p>
-      <Input type="" />
-      <p>New Password:</p>
-      <Input type="password" />
-      <p>Confirm Password:</p>
-      <Input type="password" />
+              {/* Phone Number */}
+              <Field>
+                <FieldLabel htmlFor="email">Phone Number</FieldLabel>
+                <Input id="username" type="text" required />
+              </Field>
 
-      <div className="flex items-center gap-3">
-        <Checkbox id="terms" />
-        <Label htmlFor="terms">I accept the Terms and Conditions</Label>
+              {/* New Password */}
+              <Field>
+                <FieldLabel htmlFor="password">New Password</FieldLabel>
+                <Input id="password" type="password" required />
+              </Field>
+
+              {/* Confirm Password */}
+              <Field>
+                <FieldLabel htmlFor="confirm password">
+                  Confirm Password
+                </FieldLabel>
+                <Input id="confirm password" type="password" required />
+              </Field>
+
+              <Button type="submit">SIGN UP</Button>
+
+              <div className="flex flex-col items-center text-center">
+                <FieldLabel>
+                  Already Have An Account?{" "}
+                  <a href="/Login" className="text-[#31A4D9]">
+                    Login
+                  </a>
+                </FieldLabel>
+              </div>
+            </FieldGroup>
+          </FieldSet>
+        </form>
       </div>
-      <div className="flex items-center gap-3">
-        <Checkbox id="terms" />
-        <Label htmlFor="terms">I accept the Privacy Policy</Label>
-      </div>
-
-      <button className="rounded bg-blue-500 px-4 py-2 text-white">
-        SIGN UP
-      </button>
-
-      <p>Already have an account? Log in</p>
     </>
   );
 }
