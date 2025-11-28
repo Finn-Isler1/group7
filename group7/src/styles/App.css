@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
 /* varialbes */
 
@@ -129,8 +129,9 @@ h1 {
 
 .nav ul a.active {
   color: var(--primary-color);
-} */
+}
 
+/*  
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -168,6 +169,7 @@ h1 {
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
+*/
 
 .dark {
   --background: oklch(0.129 0.042 264.695);

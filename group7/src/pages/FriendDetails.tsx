@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import usersDB from "../data/users.json";
 
 export default function FriendDetails() {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const numericId = Number(id);
 
   const user = usersDB.UsersDB.find((u: any) => u.id === numericId);
@@ -17,7 +17,7 @@ export default function FriendDetails() {
         ← Back
       </Link>
 
-      <h1 className="text-2xl font-bold">{user.name}</h1>
+      <h1 className="text-2xl font-bold">{user.username}</h1>
 
       <p className="text-sm">Email: {user.email}</p>
 

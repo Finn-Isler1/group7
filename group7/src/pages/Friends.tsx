@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import usersDB from "../data/users.json";
+import { SearchBar } from "../components/SearchBar.tsx";
+import { FriendList } from "../components/FriendList.tsx";
 
 export default function Friends() {
   const [searchParams] = useSearchParams();
   const defaultTab = searchParams.get("tab") ?? "friends";
 
   const [tab, setTab] = useState(defaultTab);
+    
+  const [searchQuery, setSearchQuery] = useState("");
 
   const user = usersDB.UsersDB[0];
 
@@ -49,7 +53,12 @@ export default function Friends() {
           Following
         </button>
       </div>
-
+      
+      <SearchBar
+        onSearch={setSearchQuery}
+        placeholder="Search for a friend..."
+      />
+      
       {/* List */}
       <ul className="space-y-3">
         {list.map((person: any) => (
@@ -57,7 +66,7 @@ export default function Friends() {
             <div className="w-10 h-10 rounded-full bg-gray-300" />
 
             <Link to={`/friends/${person.id}`} className="hover:underline">
-              {person.name}
+              {person.username}
             </Link>
           </li>
         ))}
