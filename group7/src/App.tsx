@@ -19,10 +19,6 @@ import Signup from "./pages/Signup";
 // Optional standalone Following page (if you still want it)
 import Following from "./pages/Following";
 
-
-import FilmDetails from "./pages/FilmDetails";
-import FriendDetails from "./pages/FriendDetails";
-
 function App() {
   return (
     <>
