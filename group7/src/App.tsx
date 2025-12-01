@@ -19,8 +19,6 @@ import Signup from "./pages/Signup";
 // Optional standalone Following page (if you still want it)
 import Following from "./pages/Following";
 
-
-
 function App() {
   return (
     <>
