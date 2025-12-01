@@ -20,8 +20,6 @@ import Signup from "./pages/Signup";
 import Following from "./pages/Following";
 
 
-import FilmDetails from "./pages/FilmDetails";
-import FriendDetails from "./pages/FriendDetails";
 
 function App() {
   return (
