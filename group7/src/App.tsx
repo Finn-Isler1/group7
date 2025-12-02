@@ -15,8 +15,7 @@ import Profile from "./pages/Profile";
 import Testing from "./pages/Testing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-
-// Optional standalone Following page (if you still want it)
+import Followers from "./pages/Followers";
 import Following from "./pages/Following";
 
 function App() {
@@ -38,6 +37,7 @@ function App() {
 
           {/* Optional individual following page */}
           <Route path="/following" element={<Following />} />
+          <Route path="/followers" element={<Followers />} />
 
           {/* Account Pages */}
           <Route path="/login" element={<Login />} />
