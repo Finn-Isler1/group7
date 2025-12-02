@@ -8,8 +8,14 @@
       "email": "johnsmith@gmail.com",
       "password": "password123",
       "member_since": "2022-01-15",
-      "followers": 27,
-      "following": 13
+      "friends": [
+        { "id": 2, "name": "Emma Jones" },
+        { "id": 3, "name": "Joe Johnson" }
+      ],
+      "following": [2, 3],
+      "followers": [2, 3],
+      "filmsAllTime": 30,
+      "filmsThisYear": 12
     },
     {
       "id": 2,

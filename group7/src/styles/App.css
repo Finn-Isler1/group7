@@ -3,6 +3,7 @@
 /* Focus: Smooth animations, accessibility, responsiveness, subtle depth */
 @import "tailwindcss";
 @import "tw-animate-css";
+
 @custom-variant dark (&:is(.dark *));
 /* varialbes */
 
@@ -12,7 +13,6 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
-
 
 :root {
   --primary-color: #40bcf4;
@@ -26,11 +26,14 @@
   --border-radius: 0.75rem;
   --border-radius-lg: 1rem;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
@@ -148,13 +151,18 @@ body {
 }
 
 .nav ul li a::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(64, 188, 244, 0.1), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(64, 188, 244, 0.1),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -175,17 +183,23 @@ body {
 }
 
 /* Page Containers - Adaptive Padding for Fixed Nav */
-.home-container, .profile-container {
+.home-container,
+.profile-container {
   padding-top: 5rem; /* Precise clearance for nav */
   padding-bottom: 2rem;
 }
 
 /* Header Section - Refined Flex with Depth */
-.home-header, .profile-header {
+.home-header,
+.profile-header {
   display: flex;
   align-items: center;
   padding: 2.5rem;
-  background: linear-gradient(135deg, var(--white-color) 0%, rgba(244, 244, 244, 0.8) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--white-color) 0%,
+    rgba(244, 244, 244, 0.8) 100%
+  );
   border-radius: var(--border-radius-lg);
   margin-bottom: 2.5rem;
   box-shadow: var(--shadow-md);
@@ -194,8 +208,9 @@ body {
   overflow: hidden;
 }
 
-.home-header::before, .profile-header::before {
-  content: '';
+.home-header::before,
+.profile-header::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -204,11 +219,13 @@ body {
   background: linear-gradient(90deg, var(--primary-color), transparent);
 }
 
-.hero-content, .user-avatar-section {
+.hero-content,
+.user-avatar-section {
   flex: 1;
 }
 
-.hero-title, .user-name {
+.hero-title,
+.user-name {
   font-size: 2.75rem;
   font-weight: 800;
   margin-bottom: 1rem;
@@ -216,7 +233,8 @@ body {
   letter-spacing: -0.025em;
 }
 
-.hero-subtitle, .user-bio {
+.hero-subtitle,
+.user-bio {
   font-size: 1.25rem;
   margin-bottom: 1.75rem;
   color: var(--gray);
@@ -224,13 +242,15 @@ body {
   opacity: 0.9;
 }
 
-.hero-buttons, .profile-buttons {
+.hero-buttons,
+.profile-buttons {
   display: flex;
   gap: 1.25rem;
   flex-wrap: wrap;
 }
 
-.btn-primary, .btn-outline {
+.btn-primary,
+.btn-outline {
   padding: 1rem 2rem;
   border: none;
   cursor: pointer;
@@ -254,13 +274,18 @@ body {
 }
 
 .btn-primary::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -300,19 +325,28 @@ body {
 }
 
 .hero-bg::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 70%
+  );
   animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(1deg); }
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
 }
 
 .user-avatar {
@@ -351,13 +385,18 @@ body {
 }
 
 .badge::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -384,7 +423,11 @@ body {
 
 .stat-card {
   padding: 2rem;
-  background: linear-gradient(135deg, var(--white-color) 0%, rgba(244, 244, 244, 0.6) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--white-color) 0%,
+    rgba(244, 244, 244, 0.6) 100%
+  );
   text-align: center;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-sm);
@@ -395,13 +438,17 @@ body {
 }
 
 .stat-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-accent));
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-accent)
+  );
 }
 
 .stat-card:hover {
@@ -427,10 +474,18 @@ body {
   letter-spacing: -0.05em;
 }
 
-.amber { color: var(--secondary-accent); }
-.green { color: #4caf50; }
-.blue { color: var(--primary-color); }
-.purple { color: #9c27b0; }
+.amber {
+  color: var(--secondary-accent);
+}
+.green {
+  color: #4caf50;
+}
+.blue {
+  color: var(--primary-color);
+}
+.purple {
+  color: #9c27b0;
+}
 
 .stat-desc {
   font-size: 1rem;
@@ -451,7 +506,7 @@ body {
 }
 
 .section-header::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -558,8 +613,13 @@ body {
 }
 
 @keyframes shimmer {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .rating-score {
@@ -612,7 +672,11 @@ body {
   display: flex;
   gap: 1.25rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, var(--white-color) 0%, rgba(244, 244, 244, 0.5) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--white-color) 0%,
+    rgba(244, 244, 244, 0.5) 100%
+  );
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-sm);
   transition: var(--transition-smooth);
@@ -659,7 +723,8 @@ body {
 }
 
 /* Footer - Polished & Centered */
-.home-footer, .profile-footer {
+.home-footer,
+.profile-footer {
   text-align: center;
   padding: 3rem 1.5rem;
   color: var(--gray);
@@ -687,17 +752,20 @@ body {
     justify-content: center;
   }
 
-  .home-header, .profile-header {
+  .home-header,
+  .profile-header {
     flex-direction: column;
     text-align: center;
     padding: 2rem 1.5rem;
   }
 
-  .hero-title, .user-name {
+  .hero-title,
+  .user-name {
     font-size: 2.25rem;
   }
 
-  .hero-buttons, .profile-buttons {
+  .hero-buttons,
+  .profile-buttons {
     justify-content: center;
     gap: 1rem;
   }
@@ -726,14 +794,16 @@ body {
     text-align: center;
   }
 
-  .btn-primary, .btn-outline {
+  .btn-primary,
+  .btn-outline {
     flex: 1;
     min-width: 140px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-title, .user-name {
+  .hero-title,
+  .user-name {
     font-size: 1.875rem;
   }
 
@@ -765,18 +835,21 @@ body {
 
 /* High-Contrast Mode Support */
 @media (prefers-contrast: high) {
-  .btn-primary, .btn-outline {
+  .btn-primary,
+  .btn-outline {
     border-width: 2px;
   }
 
-  .movie-card, .stat-card {
+  .movie-card,
+  .stat-card {
     border-width: 2px;
   }
 }
 
 /* Print Styles - Clean for PDF Export */
 @media print {
-  .nav, .hero-buttons button:not(.btn-primary) {
+  .nav,
+  .hero-buttons button:not(.btn-primary) {
     display: none;
   }
 
