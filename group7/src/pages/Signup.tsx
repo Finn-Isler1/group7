@@ -48,7 +48,9 @@ export default function Signup() {
                 <Input id="confirm password" type="password" required />
               </Field>
 
-              <Button type="submit">SIGN UP</Button>
+              <Button variant="link" type="submit" className="font-bold">
+                Signup
+              </Button>
 
               <div className="flex flex-col items-center text-center">
                 <FieldLabel>
