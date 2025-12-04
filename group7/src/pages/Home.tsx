@@ -160,11 +160,6 @@ export default function Home() {
           </article>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="home-footer">
-        <p>&copy; 2025 Letterboxd-Inspired App. Share your story.</p>
-      </footer>
     </div>
   );
 }
