@@ -16,7 +16,7 @@ export default function Home() {
             <button className="btn-primary">Log a Film</button>
             <Link
               to="/films"
-              className="btn-outline no-underline inline-block"
+              className="btn-outline inline-block no-underline"
               aria-label="Explore trending films"
             >
               Explore Now
@@ -51,8 +51,10 @@ export default function Home() {
       {/* Recent Watches */}
       <section className="recent-section">
         <div className="section-header">
-          <h2 className="section-title">Recent Watches</h2>
-          <button className="btn-link">See All</button>
+          <h2 className="section-title">Watchlist</h2>
+          <Link to="/watchlist" className="btn-link no-underline">
+            See All
+          </Link>
         </div>
 
         <div className="movies-grid">
@@ -150,8 +152,7 @@ export default function Home() {
               </div>
 
               <p className="review-snippet">
-                Mad science and whimsy—Emma Stone shines in Lanthimos'
-                world.
+                Mad science and whimsy—Emma Stone shines in Lanthimos' world.
               </p>
 
               <button className="btn-like">❤️</button>

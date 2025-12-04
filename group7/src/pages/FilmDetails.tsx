@@ -108,7 +108,7 @@ export default function FilmDetails() {
                 onClick={() => setShowModal(true)}
                 className="btn-primary px-8 py-4 text-lg shadow-lg hover:shadow-xl"
               >
-                Log This Film
+                Rate/Review
               </button>
               <button className="btn-outline border-2 px-8 py-4 text-lg shadow-sm hover:shadow-md">
                 Add to Watchlist
