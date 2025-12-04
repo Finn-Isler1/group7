@@ -10,6 +10,7 @@ interface Film {
   year: number;
   director: string;
   genre: string;
+  poster?: string;
 }
 
 export default function FilmDetails() {
@@ -34,17 +35,15 @@ export default function FilmDetails() {
     );
   }
 
-  // Real film-themed Unsplash images
-  const getPosterUrl = (film: Film) => {
-    switch (film.title) {
-      case "Inception":
-        return "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=600&fit=crop&crop=center";
-      case "The Godfather":
-        return "https://images.unsplash.com/photo-1571133918265-65e89a5b0e3f?w=400&h=600&fit=crop&crop=center";
-      case "Pulp Fiction":
-        return "https://images.unsplash.com/photo-1489599501215-4b4ca2e8f83d?w=400&h=600&fit=crop&crop=center";
-      default:
-        return "https://images.unsplash.com/photo-1489599501215-4b4ca2e8f83d?w=400&h=600&fit=crop&crop=center";
+  // loading the films from the filmDB
+  const getImageUrl = (filename: string | undefined) => {
+    if (!filename) {
+      return "https://via.placeholder.com/300x450.png?text=No+Image";
+    }
+    try {
+      return new URL(`../assets/${filename}`, import.meta.url).href;
+    } catch {
+      return "https://via.placeholder.com/300x450.png?text=No+Image";
     }
   };
 
@@ -68,7 +67,7 @@ export default function FilmDetails() {
       <header className="from-primary-color/10 to-white-color relative flex min-h-[70vh] items-center overflow-hidden bg-linear-to-br">
         <div className="absolute inset-0">
           <img
-            src={getPosterUrl(film)}
+            src={getImageUrl(film.poster)}
             alt={`${film.title} background`}
             className="h-full w-full object-cover opacity-20"
           />
@@ -76,7 +75,7 @@ export default function FilmDetails() {
         <div className="content-container relative z-10 flex flex-col items-start gap-8 py-16 lg:flex-row lg:items-center">
           {/* Poster - Prominent */}
           <img
-            src={getPosterUrl(film)}
+            src={getImageUrl(film.poster)}
             alt={film.title}
             className="film-poster border-gray/20 h-[500px] w-full max-w-sm shrink-0 rounded-2xl border object-cover shadow-2xl"
           />

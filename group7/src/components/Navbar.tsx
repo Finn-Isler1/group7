@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <nav className="relative bg-[#1b1b1b] text-[#f4f4f4]">
       {/* Container for the navbar */}
-      <div className="mx-auto flex max-w-screen-xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Left-aligned MovieApp Title */}
         <NavLink to="/" className="text-3xl font-semibold no-underline">
           MovieApp
