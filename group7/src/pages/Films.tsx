@@ -64,7 +64,7 @@ export default function Films() {
 
       <div className="h-12 md:h-16" />
 
-      {/* MOVIE GRID — EXACT SAME STYLE AS HOME PAGE */}
+      {/* MOVIE GRID — EXACT SAME STYLE AS HOME PAG */}
       <section className="max-w-7xl mx-auto px-6 pb-32">
         {filteredFilms.length === 0 ? (
           <div className="text-center py-32">
