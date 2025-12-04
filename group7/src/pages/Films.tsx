@@ -1,4 +1,4 @@
-// src/pages/Films.tsx — FIXED & WORKING PERFECTLY
+// src/pages/Films.tsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import filmsDB from "../data/films.json";
@@ -17,7 +17,7 @@ interface Film {
 }
 
 const POSTERS: Record<string, string> = {
-  "Inception": inceptionPoster,
+  Inception: inceptionPoster,
   "The Godfather": godfatherPoster,
   "Pulp Fiction": pulpPoster,
   "Eternal Sunshine of the Spotless Mind": eternalPoster,
@@ -30,8 +30,8 @@ export default function Films() {
   const toggleLike = (id: number, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setLikedFilms(prev =>
-      prev.includes(id) ? prev.filter(f => f !== id) : [...prev, id]
+    setLikedFilms((prev) =>
+      prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]
     );
   };
 
@@ -68,7 +68,9 @@ export default function Films() {
       <section className="max-w-7xl mx-auto px-6 pb-32">
         {filteredFilms.length === 0 ? (
           <div className="text-center py-32">
-            <p className="text-3xl font-medium text-gray-700">No films found for "{searchQuery}"</p>
+            <p className="text-3xl font-medium text-gray-700">
+              No films found for "{searchQuery}"
+            </p>
             <p className="mt-4 text-lg text-gray-500">Try searching something else!</p>
           </div>
         ) : (
@@ -88,7 +90,9 @@ export default function Films() {
 
                     <div className="movie-content">
                       <h3 className="movie-title">{film.title}</h3>
-                      <span className="movie-badge">{film.year} • {film.genre}</span>
+                      <span className="movie-badge">
+                        {film.year} • {film.genre}
+                      </span>
 
                       <div className="movie-rating">
                         <span className="stars">4.5 stars</span>
@@ -96,7 +100,7 @@ export default function Films() {
                       </div>
 
                       <p className="review-snippet">
-                        Directed by <strong>{film.director}</strong>. A masterpiece in {film.genre.toLowerCase()}.
+                        Directed by <strong>{film.director}</strong>.
                       </p>
 
                       <button

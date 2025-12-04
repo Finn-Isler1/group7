@@ -41,7 +41,7 @@ export default function MovieCard({
             <CardTitle className="text-3xl font-bold">
               {title} ({year})
             </CardTitle>
-            <CardDescription>
+            <CardDescription style={{ color: "#8B8B8B" }}>
               {genre} • {rating} • {duration}
             </CardDescription>
             <CardAction>
@@ -50,7 +50,7 @@ export default function MovieCard({
           </CardHeader>
         </div>
         <div>
-          <CardContent className="">{description}</CardContent>
+          <CardContent style={{ color: "#8B8B8B" }}>{description}</CardContent>
           <CardFooter className="flex-col gap-2"></CardFooter>
         </div>
       </div>

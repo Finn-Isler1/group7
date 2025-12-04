@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 
-export default function Signup() {
+export default function Login() {
   return (
     <>
       <div className="flex justify-center px-4 py-10">
@@ -28,7 +28,9 @@ export default function Signup() {
                 </FieldDescription>
               </Field>
 
-              <Button type="submit">LOGIN</Button>
+              <Button variant="link" type="submit" className="font-bold">
+                Login
+              </Button>
 
               <div className="flex flex-col items-center gap-2 text-center">
                 <FieldLabel>

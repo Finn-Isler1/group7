@@ -2,6 +2,7 @@
 import FilmsDB from "../data/films.json";
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
+import LogFilmModal from "../components/ui/LogFilmModal";
 
 interface Film {
   id: number;
