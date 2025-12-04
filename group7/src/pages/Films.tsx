@@ -17,7 +17,7 @@ interface Film {
 }
 
 const POSTERS: Record<string, string> = {
-  "Inception": inceptionPoster,
+  Inception: inceptionPoster,
   "The Godfather": godfatherPoster,
   "Pulp Fiction": pulpPoster,
   "Eternal Sunshine of the Spotless Mind": eternalPoster,
@@ -31,7 +31,6 @@ export default function Films() {
     e.preventDefault();
     e.stopPropagation();
     setLikedFilms((prev) =>
-      prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]
       prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id],
     );
   };
@@ -67,14 +66,6 @@ export default function Films() {
       <div className="h-12 md:h-16" />
 
       {/* MOVIE GRID */}
-      <section className="max-w-7xl mx-auto px-6 pb-32">
-        {filteredFilms.length === 0 ? (
-          <div className="text-center py-32">
-            <p className="text-3xl font-medium text-gray-700">
-              No films found for "{searchQuery}"
-            </p>
-            <p className="mt-4 text-lg text-gray-500">Try searching something else!</p>
-      {/* MOVIE GRID — EXACT SAME STYLE AS HOME PAG */}
       <section className="mx-auto max-w-7xl px-6 pb-32">
         {filteredFilms.length === 0 ? (
           <div className="py-32 text-center">
@@ -117,8 +108,6 @@ export default function Films() {
 
                       <p className="review-snippet">
                         Directed by <strong>{film.director}</strong>.
-                        Directed by <strong>{film.director}</strong>. A
-                        masterpiece in {film.genre.toLowerCase()}.
                       </p>
 
                       {/* REAL HEART ICONS */}
