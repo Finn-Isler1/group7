@@ -1,6 +1,6 @@
 // src/components/ui/LogFilmModal.tsx
 import { useState } from "react";
-import { X, Star } from "lucide-react";
+import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Processing from "./Processing";
 import Success from "./Success";

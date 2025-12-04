@@ -283,6 +283,7 @@ body {
   margin-bottom: 1rem;
   line-height: 1.15;
   letter-spacing: -0.025em;
+  color: var(--black-color);
 }
 
 .hero-subtitle,
@@ -637,12 +638,20 @@ body {
 }
 
 /* Fix hover overlay reveal */
-.movie-card .opacity-0 { transition: opacity 0.35s ease; }
+.movie-card .opacity-0 {
+  transition: opacity 0.35s ease;
+}
 .movie-card .translate-y-8,
-.movie-card .translate-y-10 { transition: transform 0.35s ease; }
-.movie-card:hover .opacity-0 { opacity: 1 !important; }
+.movie-card .translate-y-10 {
+  transition: transform 0.35s ease;
+}
+.movie-card:hover .opacity-0 {
+  opacity: 1 !important;
+}
 .movie-card:hover .translate-y-8,
-.movie-card:hover .translate-y-10 { transform: translateY(0) !important; }
+.movie-card:hover .translate-y-10 {
+  transform: translateY(0) !important;
+}
 
 .movie-content {
   padding: 1.5rem;
@@ -929,7 +938,7 @@ body {
 
 .min-h-screen.pt-28,
 .min-h-screen > div:first-child {
-  padding-top: 80px !important;   /* clears the 70px fixed nav + extra breathing room */
+  padding-top: 80px !important; /* clears the 70px fixed nav + extra breathing room */
 }
 /* Print Styles - Clean for PDF Export */
 @media print {

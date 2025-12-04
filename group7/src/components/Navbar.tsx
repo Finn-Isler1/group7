@@ -17,20 +17,23 @@ export default function Navbar() {
   return (
     <nav className="relative bg-[#1b1b1b] text-[#f4f4f4]">
       {/* Container for the navbar */}
-      <div className="max-w-screen-xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="mx-auto flex max-w-screen-xl items-center justify-between px-6 py-4">
         {/* Left-aligned MovieApp Title */}
         <NavLink to="/" className="text-3xl font-semibold no-underline">
           MovieApp
         </NavLink>
 
         {/* Centered Navigation Links */}
-        <ul className="hidden md:flex list-none gap-8 mx-auto">
+        <ul className="mx-auto hidden list-none gap-8 md:flex">
           {navLinks.map(({ to, label }) => (
             <li
               key={to}
-              className="transition-all duration-300 hover:bg-[#333] rounded-lg"
+              className="rounded-lg transition-all duration-300 hover:bg-[#333]"
             >
-              <NavLink to={to} className={({ isActive }) => linkStyles(isActive)}>
+              <NavLink
+                to={to}
+                className={({ isActive }) => linkStyles(isActive)}
+              >
                 {label}
               </NavLink>
             </li>
