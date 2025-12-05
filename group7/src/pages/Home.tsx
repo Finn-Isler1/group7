@@ -1,8 +1,12 @@
 // Home.tsx
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+
+  const navigate = useNavigate();
+  
   return (
     <div className="home-container">
       {/* Hero Section */}
@@ -12,12 +16,24 @@ export default function Home() {
           <p className="hero-subtitle">
             Discover, log, and share your film journey with friends
           </p>
+
           <div className="hero-buttons">
-            <button className="btn-primary">Log a Film</button>
+          
+            <button
+              className="btn-primary"
+              onClick={() => navigate("/films")}
+            >
+              Log a Film
+            </button>
+
             <Link
               to="/films"
+<<<<<<< Updated upstream
               className="btn-outline no-underline inline-block"
               aria-label="Explore trending films"
+=======
+              className="btn-outline inline-block no-underline"
+>>>>>>> Stashed changes
             >
               Explore Now
             </Link>
@@ -167,5 +183,8 @@ export default function Home() {
         <p>&copy; 2025 Letterboxd-Inspired App. Share your story.</p>
       </footer>
     </div>
+
+
+
   );
 }
