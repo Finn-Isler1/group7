@@ -1,6 +1,6 @@
-// src/pages/Films.tsx — REAL HEARTS & STARS (NO MORE TEXT!)
-import { useState } from "react";
-import { Link } from "react-router-dom";
+// src/pages/Films.tsx
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import filmsDB from "../data/films.json";
 
 interface Film {
@@ -9,6 +9,7 @@ interface Film {
   year: number;
   director: string;
   genre: string;
+  language: string;
   poster?: string;
 }
 
@@ -25,8 +26,75 @@ const getImageUrl = (filename: string | undefined) => {
 };
 
 export default function Films() {
+  const location = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
   const [likedFilms, setLikedFilms] = useState<number[]>([]);
+  const [filteredFilms, setFilteredFilms] = useState<Film[]>(filmsDB.FilmsDB);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const genreFilter = params.get("genres"); // comma-separated, lowercase
+    const decadeFilter = params.get("decade");
+    const languageFilter = params.get("lang");
+    const sortFilter = params.get("sort");
+
+    let films = filmsDB.FilmsDB;
+
+    // Filter by genres
+    if (genreFilter) {
+      const genresArray = genreFilter.split(",").map((g) => g.toLowerCase());
+      films = films.filter((film) =>
+        genresArray.includes(film.genre.toLowerCase()),
+      );
+    }
+
+    // Filter by language
+    if (languageFilter) {
+      films = films.filter(
+        (film) => film.language.toLowerCase() === languageFilter.toLowerCase(),
+      );
+    }
+
+    // Filter by decade (optional)
+    if (decadeFilter) {
+      const decadeNum = parseInt(decadeFilter);
+      films = films.filter(
+        (film) => Math.floor(film.year / 10) * 10 === decadeNum,
+      );
+    }
+
+    // Sort
+    if (sortFilter) {
+      switch (sortFilter) {
+        case "title a-z":
+          films = films.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        case "title z-a":
+          films = films.sort((a, b) => b.title.localeCompare(a.title));
+          break;
+        case "newest":
+          films = films.sort((a, b) => b.year - a.year);
+          break;
+        case "oldest":
+          films = films.sort((a, b) => a.year - b.year);
+          break;
+        // Add more sort logic if you have rating/popularity
+      }
+    }
+
+    // Apply search bar filtering (case-insensitive)
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      films = films.filter(
+        (film) =>
+          film.title.toLowerCase().includes(query) ||
+          film.director.toLowerCase().includes(query) ||
+          film.genre.toLowerCase().includes(query),
+      );
+    }
+
+    setFilteredFilms(films);
+  }, [location.search, searchQuery]);
 
   const toggleLike = (id: number, e: React.MouseEvent) => {
     e.preventDefault();
@@ -36,13 +104,6 @@ export default function Films() {
     );
   };
 
-  const filteredFilms = filmsDB.FilmsDB.filter(
-    (film: Film) =>
-      film.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      film.director.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      film.genre.toLowerCase().includes(searchQuery.toLowerCase()),
-  );
-
   return (
     <div className="min-h-screen pt-28">
       {/* HERO */}
@@ -50,17 +111,28 @@ export default function Films() {
         <h1 className="mb-6 text-6xl font-black tracking-tight text-gray-900 md:text-7xl lg:text-8xl">
           Discover Films
         </h1>
-        <p className="mb-16 max-w-4xl text-lg leading-relaxed text-gray-700 md:text-xl lg:text-2xl">
+        <p className="mb-8 max-w-4xl text-lg leading-relaxed text-gray-700 md:text-xl lg:text-2xl">
           Explore thousands of films, from timeless classics to hidden gems.
         </p>
-        <div className="mt-20 w-full max-w-3xl">
+
+        <div className="mt-6 flex w-full max-w-3xl items-center gap-4">
+          {/* Search Input */}
           <input
             type="text"
             placeholder="Search by title, director, or genre..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-full border border-gray-200 bg-white/95 px-12 py-7 text-lg placeholder-gray-500 shadow-2xl backdrop-blur-md transition-all focus:ring-4 focus:ring-blue-400/30 focus:outline-none"
+            className="flex-1 rounded-full border border-gray-200 bg-white/95 px-12 py-7 text-lg placeholder-gray-500 shadow-2xl backdrop-blur-md transition-all focus:ring-4 focus:ring-blue-400/30 focus:outline-none"
           />
+
+          {/* Advanced Filters Button */}
+          <Link
+            to="/filters"
+            className="btn-outline border-2 px-8 py-7 text-lg shadow-sm hover:shadow-md"
+            style={{ height: "32px", minHeight: "0" }}
+          >
+            Advanced
+          </Link>
         </div>
       </header>
 
@@ -105,7 +177,8 @@ export default function Films() {
                       </div>
 
                       <p className="review-snippet">
-                        Directed by <strong>{film.director}</strong>.
+                        Directed by <strong>{film.director}</strong>. A
+                        masterpiece in {film.genre.toLowerCase()}.
                       </p>
 
                       {/* REAL HEART ICONS */}

@@ -6,6 +6,8 @@
       "director": "Christopher Nolan",
       "year": 2010,
       "genre": "Science Fiction",
+      "language": "english",
+      "rating": 4.5
       "poster": "MOVEB46211__19379.jpg"
     },
     {
@@ -14,6 +16,8 @@
       "director": "Francis Ford Coppola",
       "year": 1972,
       "genre": "Crime",
+      "language": "english",
+      "rating": 4.5
       "poster": "MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_.jpg"
     },
     {
@@ -22,6 +26,8 @@
       "director": "Quentin Tarantino",
       "year": 1994,
       "genre": "Crime",
+      "language": "english",
+      "rating": 1
       "poster": "71iQzfnYGeL.jpg"
     },
     {
@@ -30,6 +36,8 @@
       "director": "Michael Gondry",
       "year": 2004,
       "genre": "Romance",
+      "language": "english",
+      "rating": 3
       "poster": "s-l1200.jpg"
     },
     {
