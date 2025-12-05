@@ -7,7 +7,7 @@
       "year": 2010,
       "genre": "Science Fiction",
       "language": "english",
-      "rating": 4.5
+      "rating": 4.5,
       "poster": "MOVEB46211__19379.jpg"
     },
     {
@@ -17,7 +17,7 @@
       "year": 1972,
       "genre": "Crime",
       "language": "english",
-      "rating": 4.5
+      "rating": 4.5,
       "poster": "MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_.jpg"
     },
     {
@@ -27,7 +27,7 @@
       "year": 1994,
       "genre": "Crime",
       "language": "english",
-      "rating": 1
+      "rating": 1,
       "poster": "71iQzfnYGeL.jpg"
     },
     {
@@ -37,7 +37,7 @@
       "year": 2004,
       "genre": "Romance",
       "language": "english",
-      "rating": 3
+      "rating": 3,
       "poster": "s-l1200.jpg"
     },
     {
@@ -46,6 +46,8 @@
       "director": "Frank Darabont",
       "year": 1994,
       "genre": "Drama",
+      "language": "english",
+      "rating": 4.5,
       "poster": "shawshank.jpg"
     },
     {
@@ -54,6 +56,8 @@
       "director": "David Fincher",
       "year": 1999,
       "genre": "Drama",
+      "language": "english",
+      "rating": 4.5,
       "poster": "fight_club.jpg"
     },
     {
@@ -62,6 +66,8 @@
       "director": "The Wachowskis",
       "year": 1999,
       "genre": "Science Fiction",
+      "language": "english",
+      "rating": 4.5,
       "poster": "matrix.png"
     },
     {
@@ -70,6 +76,8 @@
       "director": "Denis Villeneuve",
       "year": 2017,
       "genre": "Science Fiction",
+      "language": "english",
+      "rating": 4.5,
       "poster": "br2049.jpg"
     },
     {
@@ -78,6 +86,8 @@
       "director": "Spike Jonze",
       "year": 2013,
       "genre": "Romance",
+      "language": "english",
+      "rating": 4.5,
       "poster": "her.jpg"
     },
     {
@@ -86,6 +96,8 @@
       "director": "David Fincher",
       "year": 2010,
       "genre": "Drama",
+      "language": "english",
+      "rating": 4.5,
       "poster": "tsn.png"
     },
     {
@@ -94,6 +106,8 @@
       "director": "Damien Chazelle",
       "year": 2014,
       "genre": "Drama",
+      "language": "english",
+      "rating": 4.5,
       "poster": "whiplash.jpg"
     },
     {
@@ -102,6 +116,8 @@
       "director": "Damien Chazelle",
       "year": 2016,
       "genre": "Musical",
+      "language": "english",
+      "rating": 4.5,
       "poster": "lalaland.png"
     },
     {
@@ -110,7 +126,9 @@
       "director": "Wes Anderson",
       "year": 2014,
       "genre": "Comedy",
-      "poster": "gbh.jpg"
+      "language": "english",
+      "rating": 4.5,
+      "poster": "gbh.png"
     },
     {
       "id": 14,
@@ -118,7 +136,9 @@
       "director": "Christopher Nolan",
       "year": 2008,
       "genre": "Action",
-      "poster": "darkknight.jpg"
+      "language": "english",
+      "rating": 4.5,
+      "poster": "darkknight.png"
     },
     {
       "id": 15,
@@ -126,7 +146,9 @@
       "director": "Christopher Nolan",
       "year": 2014,
       "genre": "Science Fiction",
-      "poster": "interstellar.jpg"
+      "language": "english",
+      "rating": 4.5,
+      "poster": "interstellar.png"
     },
     {
       "id": 16,
@@ -134,7 +156,9 @@
       "director": "Sofia Coppola",
       "year": 2003,
       "genre": "Drama",
-      "poster": "lostintranslation.jpg"
+      "language": "english",
+      "rating": 4.5,
+      "poster": "lostintranslation.png"
     },
     {
       "id": 17,
@@ -142,7 +166,9 @@
       "director": "Barry Jenkins",
       "year": 2016,
       "genre": "Drama",
-      "poster": "moonlight.jpg"
+      "language": "english",
+      "rating": 4.5,
+      "poster": "moonlight.png"
     },
     {
       "id": 18,
@@ -150,6 +176,8 @@
       "director": "Bong Joon-ho",
       "year": 2019,
       "genre": "Thriller",
+      "language": "english",
+      "rating": 4.5,
       "poster": "parasite.jpg"
     },
     {
@@ -158,7 +186,9 @@
       "director": "Robert Eggers",
       "year": 2019,
       "genre": "Horror",
-      "poster": "lighthouse.jpg"
+      "language": "english",
+      "rating": 4.5,
+      "poster": "lighthouse.png"
     },
     {
       "id": 20,
@@ -166,7 +196,9 @@
       "director": "Denis Villeneuve",
       "year": 2016,
       "genre": "Science Fiction",
-      "poster": "arrival.jpg"
+      "language": "english",
+      "rating": 4.5,
+      "poster": "arrival.png"
     },
     {
       "id": 21,
@@ -174,6 +206,8 @@
       "director": "Greta Gerwig",
       "year": 2023,
       "genre": "Comedy",
+      "language": "english",
+      "rating": 4.5,
       "poster": "barbie.jpg"
     },
     {
@@ -182,6 +216,8 @@
       "director": "Christopher Nolan",
       "year": 2023,
       "genre": "Drama",
+      "language": "english",
+      "rating": 4.5,
       "poster": "oppenheimer.jpg"
     },
     {
@@ -190,7 +226,9 @@
       "director": "Nicolas Winding Refn",
       "year": 2011,
       "genre": "Crime",
-      "poster": "drive.jpg"
+      "language": "english",
+      "rating": 4.5,
+      "poster": "drive.png"
     },
     {
       "id": 24,
@@ -198,7 +236,9 @@
       "director": "Luca Guadagnino",
       "year": 2017,
       "genre": "Romance",
-      "poster": "cmbyn.jpg"
+      "language": "english",
+      "rating": 4.5,
+      "poster": "cmbyn.png"
     }
   ]
 }
