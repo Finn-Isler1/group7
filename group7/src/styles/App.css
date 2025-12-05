@@ -1160,3 +1160,50 @@ Positioning
   .navbar-mobile { display: none; }
 }
 
+/* ————————————————
+   PILL-SHAPED BUTTONS – GLOBAL (Home + Profile + Everywhere)
+   ———————————————— */
+.btn-primary,
+.btn-outline {
+  padding: 0.85rem 2rem;
+  border-radius: 9999px !important;     /* Full pill shape */
+  font-weight: 600;
+  font-size: 1rem;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid transparent; /* Important for consistent sizing */
+}
+
+/* Edit Profile – Black filled pill */
+.btn-primary {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:hover {
+  background-color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Follow – Black outline pill */
+.btn-outline {
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.btn-outline:hover {
+  background-color: #000000;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
