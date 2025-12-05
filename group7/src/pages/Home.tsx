@@ -2,11 +2,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// ✅ Import your images correctly
+// Import images
 import OppenheimerImg from "../assets/oppenheimer.jpg";
 import BarbieImg from "../assets/barbie.jpg";
 import Dune2Img from "../assets/dune2.jpg";
 import PoorThingsImg from "../assets/poorthings.jpg";
+import DriveImg from "../assets/drive.png";
 
 export default function Home() {
   return (
@@ -32,6 +33,40 @@ export default function Home() {
           </div>
         </div>
       </header>
+
+      {/* Featured Film Section */}
+      <section className="mx-auto mt-10 mb-16 max-w-6xl px-4">
+        <h2 className="mb-4 text-2xl font-bold">Featured Film</h2>
+
+        <div className="grid grid-cols-1 items-center gap-6 rounded-2xl bg-white p-4 shadow-md md:grid-cols-3">
+          <img
+            src={DriveImg}
+            alt="Featured Film"
+            className="h-full w-full rounded-xl object-cover"
+          />
+
+          <div className="flex flex-col justify-center gap-4 md:col-span-2">
+            <h3 className="text-center text-xl font-semibold md:text-left">
+              Drive
+            </h3>
+            <p className="max-h-[32rem] overflow-hidden text-center text-gray-600 md:text-left">
+              Driver is a skilled Hollywood stuntman who moonlights as a getaway
+              driver for criminals. Though he projects an icy exterior, lately
+              he’s been warming up to a pretty neighbor named Irene and her
+              young son, Benicio. When Irene’s husband gets out of jail, he
+              enlists Driver’s help in a million-dollar heist. The job goes
+              horribly wrong, and Driver must risk his life to protect Irene and
+              Benicio from the vengeful masterminds behind the robbery.
+            </p>
+
+            <div className="flex justify-center md:justify-start">
+              <Link to="/films/23" className="btn-primary w-fit">
+                View Details
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Stats Section */}
       <section className="stats-section">
@@ -68,7 +103,11 @@ export default function Home() {
         <div className="movies-grid">
           {/* Movie 1 */}
           <article className="movie-card">
-            <img src={OppenheimerImg} alt="Oppenheimer" className="movie-poster" />
+            <img
+              src={OppenheimerImg}
+              alt="Oppenheimer"
+              className="movie-poster"
+            />
             <div className="movie-content">
               <h3 className="movie-title">Oppenheimer</h3>
               <span className="movie-badge">2023 • Drama</span>
@@ -77,7 +116,8 @@ export default function Home() {
                 <span className="rating-score">4/5</span>
               </div>
               <p className="review-snippet">
-                A mind-bending atomic epic that questions creation and destruction.
+                A mind-bending atomic epic that questions creation and
+                destruction.
               </p>
               <button className="btn-like">❤️</button>
             </div>
@@ -119,7 +159,11 @@ export default function Home() {
 
           {/* Movie 4 */}
           <article className="movie-card">
-            <img src={PoorThingsImg} alt="Poor Things" className="movie-poster" />
+            <img
+              src={PoorThingsImg}
+              alt="Poor Things"
+              className="movie-poster"
+            />
             <div className="movie-content">
               <h3 className="movie-title">Poor Things</h3>
               <span className="movie-badge">2023 • Fantasy</span>
