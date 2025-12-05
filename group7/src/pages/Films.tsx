@@ -3,11 +3,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import filmsDB from "../data/films.json";
 
-import inceptionPoster from "../assets/MOVEB46211__19379.jpg";
-import eternalPoster from "../assets/s-l1200.jpg";
-import godfatherPoster from "../assets/MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_.jpg";
-import pulpPoster from "../assets/71iQzfnYGeL.jpg";
-
 interface Film {
   id: number;
   title: string;
@@ -15,13 +10,19 @@ interface Film {
   director: string;
   genre: string;
   language: string;
+  poster?: string;
 }
 
-const POSTERS: Record<string, string> = {
-  Inception: inceptionPoster,
-  "The Godfather": godfatherPoster,
-  "Pulp Fiction": pulpPoster,
-  "Eternal Sunshine of the Spotless Mind": eternalPoster,
+// loading the films from the filmDB
+const getImageUrl = (filename: string | undefined) => {
+  if (!filename) {
+    return "https://via.placeholder.com/300x450.png?text=No+Image";
+  }
+  try {
+    return new URL(`../assets/${filename}`, import.meta.url).href;
+  } catch {
+    return "https://via.placeholder.com/300x450.png?text=No+Image";
+  }
 };
 
 export default function Films() {
@@ -104,7 +105,7 @@ export default function Films() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-28">
+    <div className="min-h-screen pt-28">
       {/* HERO */}
       <header className="flex flex-col items-center justify-center px-6 pt-32 pb-48 text-center">
         <h1 className="mb-6 text-6xl font-black tracking-tight text-gray-900 md:text-7xl lg:text-8xl">
@@ -157,10 +158,7 @@ export default function Films() {
                 <Link key={film.id} to={`/films/${film.id}`} className="block">
                   <article className="movie-card group">
                     <img
-                      src={
-                        POSTERS[film.title] ||
-                        "https://via.placeholder.com/300x450.png?text=No+Image"
-                      }
+                      src={getImageUrl(film.poster)}
                       alt={film.title}
                       className="movie-poster"
                       loading="lazy"
@@ -172,8 +170,9 @@ export default function Films() {
                         {film.year} • {film.genre}
                       </span>
 
+                      {/* REAL STARS */}
                       <div className="movie-rating">
-                        <span className="stars">4.5 stars</span>
+                        <span className="stars">★★★★★</span>
                         <span className="rating-score">4.5/5</span>
                       </div>
 
@@ -182,6 +181,7 @@ export default function Films() {
                         masterpiece in {film.genre.toLowerCase()}.
                       </p>
 
+                      {/* REAL HEART ICONS */}
                       <button
                         onClick={(e) => toggleLike(film.id, e)}
                         className={`btn-like ${isLiked ? "liked" : ""}`}

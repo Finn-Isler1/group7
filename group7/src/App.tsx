@@ -1,3 +1,4 @@
+// src/App.tsx
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -5,7 +6,7 @@ import "./styles/App.css";
 
 import { Route, Routes } from "react-router-dom";
 
-// Existing page imports
+// Page imports
 import Home from "./pages/Home";
 import Films from "./pages/Films";
 import FilmDetails from "./pages/FilmDetails";
@@ -19,6 +20,8 @@ import SearchResults from "./pages/SearchResults";
 import Filters from "./pages/Filters";
 
 // Optional standalone Following page (if you still want it)
+import AllReviews from "./pages/AllReviews";
+import Watchlist from "./pages/Watchlist";
 import Following from "./pages/Following";
 
 function App() {
@@ -40,6 +43,9 @@ function App() {
           <Route path="/friends/:id" element={<FriendDetails />} />
           <Route path="/profile" element={<Profile />} />
 
+          {/* Watchlist page */}
+          <Route path="/watchlist" element={<Watchlist />} />
+
           {/* Optional individual following page */}
           <Route path="/following" element={<Following />} />
 
@@ -49,6 +55,9 @@ function App() {
 
           {/* Extra Testing Page */}
           <Route path="/testing" element={<Testing />} />
+
+          {/* Film-specific reviews page */}
+          <Route path="/films/:id/reviews" element={<AllReviews />} />
         </Routes>
       </div>
 
