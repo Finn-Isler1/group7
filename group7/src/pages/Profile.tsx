@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import usersDB from "../data/users.json";
 import FilmLogs from "@/components/FilmLogs";
 
+// ✅ Import your local favorite-film images
+import PulpFictionImg from "../assets/71iQzfnYGeL.jpg";
+import EternalSunshineImg from "../assets/s-l1200.jpg";
+import NoCountryImg from "../assets/ncfom.jpg";
+import ParasiteImg from "../assets/parasite.jpg";
+
 export default function Profile() {
   const currentUser = usersDB.UsersDB[0];
 
@@ -19,21 +25,26 @@ export default function Profile() {
     { id: 5, name: "Ricky" },
   ];
 
+  // Avatar
+  const profilePicUrl =
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&auto=format&q=80";
+
   return (
     <>
-      {/* ------------------ ORIGINAL PROFILE LAYOUT ------------------ */}
       <div className="profile-container">
         {/* Header Section */}
         <header className="profile-header">
           <div className="user-avatar-section">
             <img
-              src="https://via.placeholder.com/150x150/6c5ce7/ffffff?text=CP"
+              src={profilePicUrl}
               alt="Cameron Bentley Avatar"
               className="user-avatar"
               loading="lazy"
             />
             <div className="user-info">
-              <h1 className="user-name">Terry Lewis</h1>
+              <h1 className="hero-title" style={{ color: "#000" }}>
+                Terry Lewis
+              </h1>
               <p className="user-bio">
                 Cinephile, indie film enthusiast, and occasional director.
                 "Films are my escape hatch from reality."
@@ -47,10 +58,10 @@ export default function Profile() {
           </div>
 
           <div className="profile-buttons">
-            <button className="btn-primary" aria-label="Edit profile details">
+            <button className="btn-primary">
               <span>Edit Profile</span>
             </button>
-            <button className="btn-outline" aria-label="Follow this user">
+            <button className="btn-outline">
               <span>Follow</span>
             </button>
           </div>
@@ -85,21 +96,19 @@ export default function Profile() {
           </div>
         </section>
 
-        {/* Favorites Section */}
+        {/* Favorite Films */}
         <section className="favorites-section">
           <div className="section-header">
             <h2 className="section-title">Favorite Films</h2>
-            <button className="btn-link" aria-label="View all favorites">
-              See Full List
-            </button>
+            <button className="btn-link">See Full List</button>
           </div>
 
           <div className="movies-grid">
-            {/* --- Four favorite film cards --- */}
+            {/* --- Pulp Fiction --- */}
             <article className="movie-card">
               <img
-                src="https://via.placeholder.com/200x300/ffeaa7/000000?text=Pulp+Fiction"
-                alt="Pulp Fiction (1994)"
+                src={PulpFictionImg}
+                alt="Pulp Fiction"
                 className="movie-poster"
               />
               <div className="movie-content">
@@ -116,10 +125,11 @@ export default function Profile() {
               </div>
             </article>
 
+            {/* --- Eternal Sunshine --- */}
             <article className="movie-card">
               <img
-                src="https://via.placeholder.com/200x300/d63031/ffffff?text=Eternal+Sunshine"
-                alt="Eternal Sunshine"
+                src={EternalSunshineImg}
+                alt="Eternal Sunshine of the Spotless Mind"
                 className="movie-poster"
               />
               <div className="movie-content">
@@ -138,9 +148,10 @@ export default function Profile() {
               </div>
             </article>
 
+            {/* --- No Country for Old Men --- */}
             <article className="movie-card">
               <img
-                src="https://via.placeholder.com/200x300/98d8c8/000000?text=No+Country"
+                src={NoCountryImg}
                 alt="No Country for Old Men"
                 className="movie-poster"
               />
@@ -158,9 +169,10 @@ export default function Profile() {
               </div>
             </article>
 
+            {/* --- Parasite --- */}
             <article className="movie-card">
               <img
-                src="https://via.placeholder.com/200x300/a8e6cf/000000?text=Parasite"
+                src={ParasiteImg}
                 alt="Parasite"
                 className="movie-poster"
               />
@@ -180,7 +192,7 @@ export default function Profile() {
           </div>
         </section>
 
-        {/* Recent Activity Section */}
+        {/* Activity Section */}
         <section className="activity-section">
           <div className="section-header">
             <h2 className="section-title">Recent Activity</h2>
@@ -202,10 +214,15 @@ export default function Profile() {
         </footer>
       </div>
 
-      {/* ------------------ SECOND PROFILE LAYOUT (wrapped to avoid JSX errors) ------------------ */}
+      {/* Secondary layout (unchanged except avatar src remains) */}
       <section className="space-y-6 p-4">
         <header className="flex items-center gap-6">
-          <div className="h-20 w-20 rounded-full bg-gray-300" />
+          <img
+            src={profilePicUrl}
+            alt={`${currentUser.username}'s avatar`}
+            className="h-20 w-20 rounded-full object-cover"
+            loading="lazy"
+          />
 
           <div className="flex flex-col gap-2">
             <h1 className="text-2xl font-bold">{currentUser.username}</h1>

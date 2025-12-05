@@ -1,3 +1,4 @@
+// Navbar.tsx
 import { NavLink } from "react-router-dom";
 
 const navLinks = [
@@ -5,16 +6,12 @@ const navLinks = [
   { to: "/films", label: "Films" },
   { to: "/profile", label: "Profile" },
   { to: "/friends", label: "Friends" },
-  { to: "/testing", label: "Testing" }, // remove later
+  { to: "/testing", label: "Testing" },
 ];
-
-const linkStyles = (isActive: boolean) =>
-  `flex items-center px-6 py-2 text-lg transition-all duration-300 ${
-    isActive ? "text-[#40bcf4]" : "text-[#f4f4f4] hover:text-[#40bcf4]"
-  }`;
 
 export default function Navbar() {
   return (
+<<<<<<< Updated upstream
     <nav className="relative bg-[#1b1b1b] text-[#f4f4f4]">
       {/* Container for the navbar */}
       <div className="max-w-screen-xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -31,14 +28,33 @@ export default function Navbar() {
               className="transition-all duration-300 hover:bg-[#333] rounded-lg"
             >
               <NavLink to={to} className={({ isActive }) => linkStyles(isActive)}>
+=======
+    <nav className="navbar">
+      <div className="navbar-container">
+        {/* Logo - left with padding */}
+        <NavLink to="/" className="navbar-logo">
+          MovieApp
+        </NavLink>
+
+        {/* Menu - perfectly centered */}
+        <ul className="navbar-menu">
+          {navLinks.map(({ to, label }) => (
+            <li key={to}>
+              <NavLink
+                to={to}
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+>>>>>>> Stashed changes
                 {label}
               </NavLink>
             </li>
           ))}
         </ul>
 
-        {/* Mobile Navigation - Hamburger Men */}
-        <p className="ml-auto flex md:hidden">insert hamburger</p>
+        {/* Mobile menu icons */}
+        <div className="navbar-mobile">Menu</div>
       </div>
     </nav>
   );
