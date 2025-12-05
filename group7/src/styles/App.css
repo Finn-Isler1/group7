@@ -131,6 +131,57 @@ body {
   font-size: 1.875rem;
   font-weight: 800;
   letter-spacing: -0.5px;
+  color: white;
+}
+
+/* Change app name to CineLog */
+.nav-title::before {
+  content: "CineLog";
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: white;
+}
+
+/* Change app name to CineLog */
+.nav-title::before {
+  content: "CineLog";
+}
+
+.nav ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav ul li a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav ul li a:hover,
+.nav ul li a.active {
+  color: var(--primary-color);
+}
+
+/* Page Containers - Adaptive Padding for Fixed Nav */
+.home-container,
+.profile-container {
+  padding-top: 5rem; /* Precise clearance for nav */
+  padding-bottom: 2rem;
+}
+
+/* Header Section - Refined Flex with Depth */
+.home-header,
+.profile-header {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-right: auto;
   color: var(--white-color);
   text-decoration: none;
   transition: var(--transition-fast);
