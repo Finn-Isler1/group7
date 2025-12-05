@@ -60,7 +60,9 @@ export default function FilmDetails() {
 
         ctx.drawImage(img, 0, 0);
         const imageData = ctx.getImageData(0, 0, img.width, img.height);
-        let r = 0, g = 0, b = 0;
+        let r = 0,
+          g = 0,
+          b = 0;
         const total = imageData.data.length / 4;
 
         for (let i = 0; i < imageData.data.length; i += 4) {
@@ -115,8 +117,9 @@ export default function FilmDetails() {
             <div className="HeroTags">
               <span>{film.year}</span>
               <span>{film.genre}</span>
-              <span>Directed by <strong>{film.director}</strong></span>
-
+              <span>
+                Directed by <strong>{film.director}</strong>
+              </span>
             </div>
 
             <p className="HeroDescription">
@@ -138,9 +141,7 @@ export default function FilmDetails() {
               >
                 ★ Rate / Review
               </button>
-              <button className="BtnOutline">
-                + Add to Watchlist
-              </button>
+              <button className="BtnOutline">+ Add to Watchlist</button>
             </div>
           </div>
         </div>
@@ -149,7 +150,6 @@ export default function FilmDetails() {
       {/* DETAILS GRID */}
       <section className="DetailsSection">
         <div className="DetailsGrid">
-
           <div className="DetailsCard">
             <h3>Film Info</h3>
             <p>
@@ -162,9 +162,10 @@ export default function FilmDetails() {
           <div className="DetailsCard">
             <h3>Overview</h3>
             <p>
-              A film widely recognized for its complexity, artistry, and emotional
-              weight. It blends brilliant direction with layered storytelling to
-              deliver a cinematic experience that resonates far beyond its runtime.
+              A film widely recognized for its complexity, artistry, and
+              emotional weight. It blends brilliant direction with layered
+              storytelling to deliver a cinematic experience that resonates far
+              beyond its runtime.
             </p>
           </div>
 
@@ -176,7 +177,47 @@ export default function FilmDetails() {
               <li>Masterful genre-defining direction</li>
             </ul>
           </div>
+        </div>
+      </section>
 
+      {/* TOP REVIEWS */}
+      <section className="TopReviewsSection">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <h2 className="mb-12 text-center text-4xl font-bold">Top Reviews</h2>
+
+          <div className="ReviewsGrid">
+            {/* Example reviews */}
+            {[
+              {
+                reviewer: "Alice M.",
+                rating: 5,
+                comment:
+                  "An absolute masterpiece! The visuals and story stay with you long after watching.",
+              },
+              {
+                reviewer: "John D.",
+                rating: 4,
+                comment:
+                  "Great performances and cinematography. A must-watch for genre fans.",
+              },
+              {
+                reviewer: "Sophia K.",
+                rating: 5,
+                comment:
+                  "Emotionally gripping and beautifully directed. Can't recommend enough.",
+              },
+            ].map((review, idx) => (
+              <div key={idx} className="ReviewCard">
+                <div className="ReviewHeader">
+                  <span className="ReviewerName">{review.reviewer}</span>
+                  <span className="ReviewRating">
+                    {"★".repeat(review.rating)} {"☆".repeat(5 - review.rating)}
+                  </span>
+                </div>
+                <p className="ReviewComment">{review.comment}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -185,7 +226,9 @@ export default function FilmDetails() {
         © 2025 filmApp — All rights reserved.
       </footer>
 
-      {showModal && <LogFilmModal film={film} onClose={() => setShowModal(false)} />}
+      {showModal && (
+        <LogFilmModal film={film} onClose={() => setShowModal(false)} />
+      )}
 
       {/* FULL PAGE CINEMATIC CSS — INLINE + PERFECTLY SYNCED */}
       <style>{`
