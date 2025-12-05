@@ -16,6 +16,7 @@ import Testing from "./pages/Testing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import SearchResults from "./pages/SearchResults";
+import Filters from "./pages/Filters";
 
 // Optional standalone Following page (if you still want it)
 import Following from "./pages/Following";
@@ -32,6 +33,7 @@ function App() {
           <Route path="/films" element={<Films />} />
           <Route path="/films/:id" element={<FilmDetails />} />
           <Route path="/searchresults" element={<SearchResults />} />
+          <Route path="/filters" element={<Filters />} />
 
           {/* Your Pages */}
           <Route path="/friends" element={<Friends />} />
