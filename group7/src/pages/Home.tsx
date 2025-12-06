@@ -3,6 +3,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+// ✅ Import your images correctly
+import OppenheimerImg from "../assets/oppenheimer.jpg";
+import BarbieImg from "../assets/barbie.jpg";
+import Dune2Img from "../assets/dune2.jpg";
+import PoorThingsImg from "../assets/poorthings.jpg";
+
 export default function Home() {
 
   const navigate = useNavigate();
@@ -12,7 +18,9 @@ export default function Home() {
       {/* Hero Section */}
       <header className="home-header">
         <div className="hero-content">
-          <h1 className="hero-title">Welcome Back, Cinephile</h1>
+          <h1 className="hero-title" style={{ color: "#000" }}>
+            Welcome Back, Cinephile
+          </h1>
           <p className="hero-subtitle">
             Discover, log, and share your film journey with friends
           </p>
@@ -28,12 +36,8 @@ export default function Home() {
 
             <Link
               to="/films"
-<<<<<<< Updated upstream
-              className="btn-outline no-underline inline-block"
-              aria-label="Explore trending films"
-=======
               className="btn-outline inline-block no-underline"
->>>>>>> Stashed changes
+              aria-label="Explore trending films"
             >
               Explore Now
             </Link>
@@ -64,124 +68,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Recent Watches */}
+      {/* Watchlist */}
       <section className="recent-section">
         <div className="section-header">
           <h2 className="section-title">Watchlist</h2>
           <Link to="/watchlist" className="btn-link no-underline">
-          See All
+            See All
           </Link>
         </div>
 
         <div className="movies-grid">
           {/* Movie 1 */}
           <article className="movie-card">
-            <img
-              src="https://via.placeholder.com/200x300?text=Oppenheimer"
-              alt="Oppenheimer"
-              className="movie-poster"
-            />
-
+            <img src={OppenheimerImg} alt="Oppenheimer" className="movie-poster" />
             <div className="movie-content">
               <h3 className="movie-title">Oppenheimer</h3>
               <span className="movie-badge">2023 • Drama</span>
-
               <div className="movie-rating">
                 <span className="stars">★★★★☆</span>
                 <span className="rating-score">4/5</span>
               </div>
-
               <p className="review-snippet">
-                A mind-bending atomic epic that questions creation and
-                destruction.
+                A mind-bending atomic epic that questions creation and destruction.
               </p>
-
               <button className="btn-like">❤️</button>
             </div>
           </article>
 
           {/* Movie 2 */}
           <article className="movie-card">
-            <img
-              src="https://via.placeholder.com/200x300/ff8e53/ffffff?text=Barbie"
-              alt="Barbie"
-              className="movie-poster"
-            />
-
+            <img src={BarbieImg} alt="Barbie" className="movie-poster" />
             <div className="movie-content">
               <h3 className="movie-title">Barbie</h3>
               <span className="movie-badge">2023 • Comedy</span>
-
               <div className="movie-rating">
                 <span className="stars">★★★☆☆</span>
                 <span className="rating-score">3/5</span>
               </div>
-
               <p className="review-snippet">
                 Pink power with a punch—subverts expectations beautifully.
               </p>
-
               <button className="btn-like">❤️</button>
             </div>
           </article>
 
           {/* Movie 3 */}
           <article className="movie-card">
-            <img
-              src="https://via.placeholder.com/200x300/4ecdc4/ffffff?text=Dune+Part+Two"
-              alt="Dune Part Two"
-              className="movie-poster"
-            />
-
+            <img src={Dune2Img} alt="Dune Part Two" className="movie-poster" />
             <div className="movie-content">
               <h3 className="movie-title">Dune: Part Two</h3>
               <span className="movie-badge">2024 • Sci-Fi</span>
-
               <div className="movie-rating">
                 <span className="stars">★★★★★</span>
                 <span className="rating-score">5/5</span>
               </div>
-
               <p className="review-snippet">
                 Epic sands and spice—Villeneuve elevates the saga.
               </p>
-
               <button className="btn-like">❤️</button>
             </div>
           </article>
 
           {/* Movie 4 */}
           <article className="movie-card">
-            <img
-              src="https://via.placeholder.com/200x300/45b7d1/ffffff?text=Poor+Things"
-              alt="Poor Things"
-              className="movie-poster"
-            />
-
+            <img src={PoorThingsImg} alt="Poor Things" className="movie-poster" />
             <div className="movie-content">
               <h3 className="movie-title">Poor Things</h3>
               <span className="movie-badge">2023 • Fantasy</span>
-
               <div className="movie-rating">
                 <span className="stars">★★★★☆</span>
                 <span className="rating-score">4/5</span>
               </div>
-
               <p className="review-snippet">
-                Mad science and whimsy—Emma Stone shines in Lanthimos'
-                world.
+                Mad science and whimsy—Emma Stone shines in Lanthimos' world.
               </p>
-
               <button className="btn-like">❤️</button>
             </div>
           </article>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="home-footer">
-        <p>&copy; 2025 Letterboxd-Inspired App. Share your story.</p>
-      </footer>
     </div>
 
 

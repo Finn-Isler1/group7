@@ -45,7 +45,7 @@ export default function LogFilmModal({ film, onClose }: LogFilmModalProps) {
   const handleViewReview = () => {
     setShowSuccess(false);
     onClose();
-   
+
     navigate(`/films/${film.id}/reviews`);
   };
 
@@ -54,20 +54,17 @@ export default function LogFilmModal({ film, onClose }: LogFilmModalProps) {
       {showProcessing && <Processing />}
 
       {showSuccess && (
-        <Success
-          onClose={handleSuccessClose}
-          onViewReview={handleViewReview}
-        />
+        <Success onClose={handleSuccessClose} onViewReview={handleViewReview} />
       )}
 
       <div
         className="fixed inset-0 z-40 flex items-center justify-center bg-black/40"
         onClick={onClose}
       >
-       <div
-        className="w-full max-w-md rounded-2xl bg-gray-100 p-6"
-        onClick={(e) => e.stopPropagation()}
-      >
+        <div
+          className="w-full max-w-md rounded-2xl bg-gray-100 p-6"
+          onClick={(e) => e.stopPropagation()}
+        >
           {/* Header */}
           <div className="mb-4 flex items-start justify-between">
             <h2 className="text-xl font-bold">{film.title}</h2>
@@ -114,7 +111,7 @@ export default function LogFilmModal({ film, onClose }: LogFilmModalProps) {
               value={review}
               onChange={(e) => setReview(e.target.value)}
               placeholder="Write your review..."
-              className="h-32 w-full resize-none rounded-xl border border-gray-300 p-3 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-400"
+              className="h-32 w-full resize-none rounded-xl border border-gray-300 p-3 text-sm text-gray-800 focus:ring-2 focus:ring-sky-400 focus:outline-none"
             />
           </div>
 

@@ -1,0 +1,244 @@
+{
+  "FilmsDB": [
+    {
+      "id": 1,
+      "title": "Inception",
+      "director": "Christopher Nolan",
+      "year": 2010,
+      "genre": "Science Fiction",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "MOVEB46211__19379.jpg"
+    },
+    {
+      "id": 2,
+      "title": "The Godfather",
+      "director": "Francis Ford Coppola",
+      "year": 1972,
+      "genre": "Crime",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Pulp Fiction",
+      "director": "Quentin Tarantino",
+      "year": 1994,
+      "genre": "Crime",
+      "language": "english",
+      "rating": 1,
+      "poster": "71iQzfnYGeL.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Eternal Sunshine of the Spotless Mind",
+      "director": "Michael Gondry",
+      "year": 2004,
+      "genre": "Romance",
+      "language": "english",
+      "rating": 3,
+      "poster": "s-l1200.jpg"
+    },
+    {
+      "id": 5,
+      "title": "The Shawshank Redemption",
+      "director": "Frank Darabont",
+      "year": 1994,
+      "genre": "Drama",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "shawshank.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Fight Club",
+      "director": "David Fincher",
+      "year": 1999,
+      "genre": "Drama",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "fight_club.jpg"
+    },
+    {
+      "id": 7,
+      "title": "The Matrix",
+      "director": "The Wachowskis",
+      "year": 1999,
+      "genre": "Science Fiction",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "matrix.png"
+    },
+    {
+      "id": 8,
+      "title": "Blade Runner 2049",
+      "director": "Denis Villeneuve",
+      "year": 2017,
+      "genre": "Science Fiction",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "br2049.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Her",
+      "director": "Spike Jonze",
+      "year": 2013,
+      "genre": "Romance",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "her.jpg"
+    },
+    {
+      "id": 10,
+      "title": "The Social Network",
+      "director": "David Fincher",
+      "year": 2010,
+      "genre": "Drama",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "tsn.png"
+    },
+    {
+      "id": 11,
+      "title": "Whiplash",
+      "director": "Damien Chazelle",
+      "year": 2014,
+      "genre": "Drama",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "whiplash.jpg"
+    },
+    {
+      "id": 12,
+      "title": "La La Land",
+      "director": "Damien Chazelle",
+      "year": 2016,
+      "genre": "Musical",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "lalaland.png"
+    },
+    {
+      "id": 13,
+      "title": "The Grand Budapest Hotel",
+      "director": "Wes Anderson",
+      "year": 2014,
+      "genre": "Comedy",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "gbh.png"
+    },
+    {
+      "id": 14,
+      "title": "The Dark Knight",
+      "director": "Christopher Nolan",
+      "year": 2008,
+      "genre": "Action",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "darkknight.png"
+    },
+    {
+      "id": 15,
+      "title": "Interstellar",
+      "director": "Christopher Nolan",
+      "year": 2014,
+      "genre": "Science Fiction",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "interstellar.png"
+    },
+    {
+      "id": 16,
+      "title": "Lost in Translation",
+      "director": "Sofia Coppola",
+      "year": 2003,
+      "genre": "Drama",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "lostintranslation.png"
+    },
+    {
+      "id": 17,
+      "title": "Moonlight",
+      "director": "Barry Jenkins",
+      "year": 2016,
+      "genre": "Drama",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "moonlight.png"
+    },
+    {
+      "id": 18,
+      "title": "Parasite",
+      "director": "Bong Joon-ho",
+      "year": 2019,
+      "genre": "Thriller",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "parasite.jpg"
+    },
+    {
+      "id": 19,
+      "title": "The Lighthouse",
+      "director": "Robert Eggers",
+      "year": 2019,
+      "genre": "Horror",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "lighthouse.png"
+    },
+    {
+      "id": 20,
+      "title": "Arrival",
+      "director": "Denis Villeneuve",
+      "year": 2016,
+      "genre": "Science Fiction",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "arrival.png"
+    },
+    {
+      "id": 21,
+      "title": "Barbie",
+      "director": "Greta Gerwig",
+      "year": 2023,
+      "genre": "Comedy",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "barbie.jpg"
+    },
+    {
+      "id": 22,
+      "title": "Oppenheimer",
+      "director": "Christopher Nolan",
+      "year": 2023,
+      "genre": "Drama",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "oppenheimer.jpg"
+    },
+    {
+      "id": 23,
+      "title": "Drive",
+      "director": "Nicolas Winding Refn",
+      "year": 2011,
+      "genre": "Crime",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "drive.png"
+    },
+    {
+      "id": 24,
+      "title": "Call Me by Your Name",
+      "director": "Luca Guadagnino",
+      "year": 2017,
+      "genre": "Romance",
+      "language": "english",
+      "rating": 4.5,
+      "poster": "cmbyn.png"
+    }
+  ]
+}
