@@ -220,7 +220,14 @@ export default function FilmDetails() {
       {/* TOP REVIEWS */}
       <section className="TopReviewsSection">
         <div className="mx-auto max-w-7xl px-6 py-24">
-          <h2 className="mb-12 text-center text-4xl font-bold">Top Reviews</h2>
+          {/* Header with Title + Button */}
+          <div className="mb-12 flex items-center justify-between">
+            <h2 className="text-4xl font-bold">Top Reviews</h2>
+
+            <Link to={`/films/${id}/reviews`} className="btn-primary">
+              View All Reviews
+            </Link>
+          </div>
 
           <div className="ReviewsGrid">
             {/* Example reviews */}
@@ -259,9 +266,9 @@ export default function FilmDetails() {
       </section>
 
       {/* FOOTER */}
-      <footer className="FilmFooter">
+      {/* <footer className="FilmFooter">
         © 2025 filmApp — All rights reserved.
-      </footer>
+      </footer> */}
 
       {showModal && (
         <LogFilmModal film={film} onClose={() => setShowModal(false)} />

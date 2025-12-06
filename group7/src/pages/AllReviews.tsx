@@ -15,6 +15,17 @@ type Review = {
   text: string;
 };
 
+type Film = {
+  id: number;
+  title: string;
+  poster?: string;
+  year: number;
+  genre: string;
+  director: string;
+};
+
+const films: Film[] = (FilmsDB as any).FilmsDB;
+
 const ALL_REVIEWS: Review[] = [
   {
     id: 1,
@@ -51,17 +62,6 @@ const ALL_REVIEWS: Review[] = [
   },
 ];
 
-type Film = {
-  id: number;
-  title: string;
-  poster?: string;
-  year: number;
-  genre: string;
-  director: string;
-};
-
-const films: Film[] = (FilmsDB as any).FilmsDB;
-
 function renderStars(rating: number) {
   const full = Math.floor(rating);
   const half = rating % 1 !== 0;
@@ -71,9 +71,11 @@ function renderStars(rating: number) {
       {Array(full)
         .fill(0)
         .map((_, i) => (
-          <span key={i} className="text-yellow-500 text-xl">★</span>
+          <span key={i} className="text-xl text-yellow-500">
+            ★
+          </span>
         ))}
-      {half && <span className="text-yellow-500 text-xl">½</span>}
+      {half && <span className="text-xl text-yellow-500">½</span>}
     </>
   );
 }
@@ -98,8 +100,7 @@ export default function AllReviews() {
   const reviewsForFilm = ALL_REVIEWS.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-white-color text-black-color pt-20 pb-10 px-4 md:px-10">
-
+    <div className="bg-white-color text-black-color min-h-screen px-4 pt-20 pb-10 md:px-10">
       {/* HEADER */}
       <div className="mb-8 flex items-center justify-between">
         <h1 className="flex-1 text-center text-3xl font-bold">All Reviews</h1>
@@ -116,14 +117,14 @@ export default function AllReviews() {
         {reviewsForFilm.map((review) => (
           <article
             key={review.id}
-            className="flex gap-6 p-6 rounded-xl shadow-sm mb-16 bg-white-color" 
+            className="bg-white-color mb-16 flex gap-6 rounded-xl p-6 shadow-sm"
           >
             {/* POSTER */}
             <div className="flex-shrink-0">
               {posterUrl ? (
                 <img
                   src={posterUrl}
-                  alt={review.title}
+                  alt={film?.title}
                   className="h-44 w-32 rounded-lg object-cover shadow-md"
                 />
               ) : (
@@ -138,10 +139,10 @@ export default function AllReviews() {
               <div className="flex items-start justify-between">
                 <div>
                   <h2 className="text-2xl font-bold">
-                    {review.title} ({review.year})
+                    {film?.title} ({film?.year})
                   </h2>
                   <p className="mt-1 text-xs text-gray-600">
-                    {review.genre.toUpperCase()}
+                    {film?.genre.toUpperCase()}
                   </p>
                   <div className="mt-1 flex items-center gap-1">
                     {renderStars(review.rating)}
