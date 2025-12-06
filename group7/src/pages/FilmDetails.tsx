@@ -166,19 +166,19 @@ export default function FilmDetails() {
                 {isInQueue ? "In Queue" : "Add to Queue"}
               </button>
 
-              {/* GREEN PILL — WATCHLIST */}
+              {/* GREEN PILL — WATCHLIST
               {isInWatchlist && (
                 <span className="ml-2 rounded-full border border-emerald-500 bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-600">
                   Added to Watchlist
                 </span>
-              )}
+              )} */}
 
-              {/* BLUE PILL — QUEUE */}
+              {/* BLUE PILL — QUEUE
               {isInQueue && (
                 <span className="ml-2 rounded-full border border-blue-500 bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-600">
                   Added to Queue
                 </span>
-              )}
+              )} */}
             </div>
           </div>
         </div>

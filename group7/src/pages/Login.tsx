@@ -45,12 +45,22 @@ export default function Login() {
 
   return (
     <>
-      <div className="flex justify-center px-4 py-10">
+      <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-gray-50 to-gray-100 pt-28 pb-20">
+        {/* HERO / TITLE */}
+        <header className="flex w-full flex-col items-center justify-center px-6 pt-32 pb-12 text-center">
+          <h1 className="mb-6 text-6xl font-black tracking-tight text-gray-900 md:text-7xl lg:text-8xl">
+            Login to MovieApp
+          </h1>
+          <p className="max-w-4xl text-lg leading-relaxed text-gray-700 md:text-xl lg:text-2xl">
+            Login to rate and review your favorite films.
+          </p>
+        </header>
+
+        {/* LOGIN FORM */}
         <form
           className="flex w-full max-w-md flex-col gap-4"
           onSubmit={handleLogin}
         >
-          <h1 className="text-center text-3xl font-bold">LETTERBOXD</h1>
           <FieldSet>
             <FieldGroup>
               <Field>
