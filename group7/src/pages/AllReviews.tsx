@@ -1,6 +1,7 @@
 // src/pages/AllReviews.tsx
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import FilmsDB from "../data/films.json";
 
 type Review = {
   id: number;
@@ -10,57 +11,56 @@ type Review = {
   genre: string;
   reviewer: string;
   date: string;
-  rating: number; // e.g. 4.5
+  rating: number;
   text: string;
 };
 
-// One or more reviews for each of your four films
 const ALL_REVIEWS: Review[] = [
   {
     id: 1,
     filmId: 1,
-    title: "Inception",
-    year: 2010,
-    genre: "Science Fiction",
-    reviewer: "You",
+    title: "12 Angry Men",
+    year: 1957,
+    genre: "Drama",
+    reviewer: "JaneSmith",
     date: "Oct 2025",
-    rating: 4.5,
-    text: "A mind-bending exploration of dreams within dreams. Nolan keeps the tension high and the visuals unforgettable.",
+    rating: 5,
+    text: "A masterful blend of suspense and intellect. The claustrophobic setting amplifies the tension, turning each juror’s argument into a riveting clash of ideals.",
   },
   {
     id: 2,
-    filmId: 2,
-    title: "The Godfather",
-    year: 1972,
-    genre: "Crime",
-    reviewer: "You",
+    filmId: 1,
+    title: "12 Angry Men",
+    year: 1957,
+    genre: "Drama",
+    reviewer: "FilmFan42",
     date: "Oct 2025",
-    rating: 5,
-    text: "A masterclass in storytelling and character. Every performance is iconic and every scene feels essential.",
+    rating: 4.5,
+    text: "This movie was extremely impactful. ",
   },
   {
     id: 3,
-    filmId: 3,
-    title: "Pulp Fiction",
-    year: 1994,
-    genre: "Crime",
-    reviewer: "You",
-    date: "Oct 2025",
-    rating: 4,
-    text: "A bold, stylish film with unforgettable dialogue and a nonlinear structure that rewards rewatching.",
-  },
-  {
-    id: 4,
-    filmId: 4,
-    title: "Eternal Sunshine of the Spotless Mind",
-    year: 2004,
-    genre: "Romantic Comedy",
-    reviewer: "You",
+    filmId: 1,
+    title: "12 Angry Men",
+    year: 1957,
+    genre: "Drama",
+    reviewer: "CinemaLover",
     date: "Oct 2025",
     rating: 5,
-    text: "A beautiful, emotional look at love and memory. Equal parts melancholy and hopeful, and totally unique.",
+    text: "Absolutely amazing film! I will be watching this again, I recommend this movie to all families.",
   },
 ];
+
+type Film = {
+  id: number;
+  title: string;
+  poster?: string;
+  year: number;
+  genre: string;
+  director: string;
+};
+
+const films: Film[] = (FilmsDB as any).FilmsDB;
 
 function renderStars(rating: number) {
   const full = Math.floor(rating);
@@ -71,13 +71,20 @@ function renderStars(rating: number) {
       {Array(full)
         .fill(0)
         .map((_, i) => (
-          <span key={i} className="text-yellow-500 text-xl">
-            ★
-          </span>
+          <span key={i} className="text-yellow-500 text-xl">★</span>
         ))}
       {half && <span className="text-yellow-500 text-xl">½</span>}
     </>
   );
+}
+
+function getImageUrl(filename: string | undefined) {
+  if (!filename) return "";
+  try {
+    return new URL(`../assets/${filename}`, import.meta.url).href;
+  } catch {
+    return "";
+  }
 }
 
 export default function AllReviews() {
@@ -85,95 +92,87 @@ export default function AllReviews() {
   const { id } = useParams<{ id: string }>();
 
   const filmId = Number(id);
-  const reviewsForFilm = ALL_REVIEWS.filter((r) => r.filmId === filmId);
+  const film = films.find((f) => f.id === filmId);
+  const posterUrl = getImageUrl(film?.poster);
 
-  // If no reviews for this film
-  if (!id || reviewsForFilm.length === 0) {
-    return (
-      <div className="min-h-screen bg-white-color text-black-color pt-20 pb-10 px-4 md:px-10">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-center flex-1">All Reviews</h1>
-          <button
-            onClick={() => navigate(-1)}
-            className="btn-outline px-5 py-2 rounded-lg text-sm font-medium"
-          >
-            Back
-          </button>
-        </div>
-        <p className="text-center text-gray">
-          There are no reviews for this film yet.
-        </p>
-      </div>
-    );
-  }
+  const reviewsForFilm = ALL_REVIEWS.slice(0, 3);
 
   return (
     <div className="min-h-screen bg-white-color text-black-color pt-20 pb-10 px-4 md:px-10">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold text-center flex-1">All Reviews</h1>
 
+      {/* HEADER */}
+      <div className="mb-8 flex items-center justify-between">
+        <h1 className="flex-1 text-center text-3xl font-bold">All Reviews</h1>
         <button
           onClick={() => navigate(-1)}
-          className="btn-outline px-5 py-2 rounded-lg text-sm font-medium"
+          className="btn-outline rounded-lg px-5 py-2 text-sm font-medium"
         >
           Back
         </button>
       </div>
 
-      {/* Review cards – only for THIS film */}
-      <div className="space-y-10">
+      {/* REVIEW LIST */}
+      <div>
         {reviewsForFilm.map((review) => (
           <article
             key={review.id}
-            className="flex gap-6 rounded-2xl bg-[#e9e7e7] p-6 shadow-sm"
+            className="flex gap-6 p-6 rounded-xl shadow-sm mb-16 bg-white-color" 
           >
-            {/* Fake "poster" that matches your I / T / P / E style */}
-            <div className="h-40 w-28 flex-shrink-0 rounded-lg bg-gray-200 flex items-center justify-center text-3xl font-semibold text-black">
-              {review.title.charAt(0)}
+            {/* POSTER */}
+            <div className="flex-shrink-0">
+              {posterUrl ? (
+                <img
+                  src={posterUrl}
+                  alt={review.title}
+                  className="h-44 w-32 rounded-lg object-cover shadow-md"
+                />
+              ) : (
+                <div className="flex h-44 w-32 items-center justify-center rounded-lg bg-gray-300 text-3xl font-semibold text-black">
+                  {review.title.charAt(0)}
+                </div>
+              )}
             </div>
 
-            {/* Right side */}
+            {/* CONTENT */}
             <div className="flex-1">
-              {/* Title + stars + heart */}
-              <div className="flex items-start justify-between mb-2">
+              <div className="flex items-start justify-between">
                 <div>
                   <h2 className="text-2xl font-bold">
                     {review.title} ({review.year})
                   </h2>
-                  <p className="text-xs text-gray mt-1">
+                  <p className="mt-1 text-xs text-gray-600">
                     {review.genre.toUpperCase()}
                   </p>
-                  <div className="flex items-center gap-1 mt-1">
+                  <div className="mt-1 flex items-center gap-1">
                     {renderStars(review.rating)}
                   </div>
                 </div>
 
-                <button className="rounded-full border border-gray/40 p-2 hover:bg-white">
+                <button className="rounded-full border border-gray-400 p-2 hover:bg-white">
                   ♡
                 </button>
               </div>
 
-              {/* Reviewer line */}
-              <p className="text-gray mb-2 flex items-center gap-2">
-                <span className="text-lg">👤</span>
+              <p className="mt-1 text-sm text-gray-700">
+                <span className="mr-1">👤</span>
                 Reviewed by {review.reviewer}, {review.date}
               </p>
 
-              {/* Review text */}
-              <p className="text-gray leading-relaxed mb-4">{review.text}</p>
+              <p className="mt-3 text-base">{review.text}</p>
 
-              {/* Buttons */}
-              <div className="flex gap-4">
-                <button className="rounded-lg border border-black px-6 py-2 text-sm hover:bg-white">
+              <div className="mt-4 flex flex-wrap gap-3">
+                <button className="rounded-lg border border-black px-6 py-2 text-sm hover:bg-gray-100">
                   View
                 </button>
-                <button className="rounded-lg border border-black px-6 py-2 text-sm hover:bg-white">
+                <button className="rounded-lg border border-black px-6 py-2 text-sm hover:bg-gray-100">
                   Comment
                 </button>
-                <button className="rounded-lg border border-black px-6 py-2 text-sm hover:bg-white">
+                <Link
+                  to={`/films/${filmId}`}
+                  className="rounded-lg border border-black px-6 py-2 text-sm hover:bg-gray-100"
+                >
                   View Film
-                </button>
+                </Link>
               </div>
             </div>
           </article>

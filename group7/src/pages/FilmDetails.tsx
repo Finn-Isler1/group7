@@ -85,6 +85,10 @@ export default function FilmDetails() {
     getAverageColor(poster).then((color) => setDominantColor(color));
   }, [poster]);
 
+  // ⭐ NEW STATES
+  const [isInWatchlist, setIsInWatchlist] = useState(false);
+  const [isInQueue, setIsInQueue] = useState(false);
+
   return (
     <div className="FilmDetailsPage">
       {/* Sticky Top Nav */}
@@ -141,7 +145,40 @@ export default function FilmDetails() {
               >
                 ★ Rate / Review
               </button>
-              <button className="BtnOutline">+ Add to Watchlist</button>
+
+              {/* ⭐ WATCHLIST BUTTON */}
+              <button
+                className={`btn-outline border-2 px-8 py-4 text-lg shadow-sm hover:shadow-md ${
+                  isInWatchlist ? "bg-black-color text-white-color" : ""
+                }`}
+                onClick={() => setIsInWatchlist((prev) => !prev)}
+              >
+                {isInWatchlist ? "In Watchlist" : "Add to Watchlist"}
+              </button>
+
+              {/* ⭐ QUEUE BUTTON */}
+              <button
+                className={`btn-outline border-2 px-8 py-4 text-lg shadow-sm hover:shadow-md ${
+                  isInQueue ? "bg-black-color text-white-color" : ""
+                }`}
+                onClick={() => setIsInQueue((prev) => !prev)}
+              >
+                {isInQueue ? "In Queue" : "Add to Queue"}
+              </button>
+
+              {/* GREEN PILL — WATCHLIST */}
+              {isInWatchlist && (
+                <span className="ml-2 rounded-full border border-emerald-500 bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-600">
+                  Added to Watchlist
+                </span>
+              )}
+
+              {/* BLUE PILL — QUEUE */}
+              {isInQueue && (
+                <span className="ml-2 rounded-full border border-blue-500 bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-600">
+                  Added to Queue
+                </span>
+              )}
             </div>
           </div>
         </div>

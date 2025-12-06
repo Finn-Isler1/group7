@@ -1,6 +1,7 @@
 // Home.tsx
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Import images
 import OppenheimerImg from "../assets/oppenheimer.jpg";
@@ -10,6 +11,9 @@ import PoorThingsImg from "../assets/poorthings.jpg";
 import DriveImg from "../assets/drive.png";
 
 export default function Home() {
+
+  const navigate = useNavigate();
+  
   return (
     <div className="home-container">
       {/* Hero Section */}
@@ -21,8 +25,16 @@ export default function Home() {
           <p className="hero-subtitle">
             Discover, log, and share your film journey with friends
           </p>
+
           <div className="hero-buttons">
-            <button className="btn-primary">Log a Film</button>
+          
+            <button
+              className="btn-primary"
+              onClick={() => navigate("/films")}
+            >
+              Log a Film
+            </button>
+
             <Link
               to="/films"
               className="btn-outline inline-block no-underline"
@@ -180,5 +192,8 @@ export default function Home() {
         </div>
       </section>
     </div>
+
+
+
   );
 }

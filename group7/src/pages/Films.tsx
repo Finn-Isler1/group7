@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import filmsDB from "../data/films.json";
+import type { MouseEvent } from "react";
 
 interface Film {
   id: number;
@@ -170,7 +171,7 @@ export default function Films() {
                         {film.year} • {film.genre}
                       </span>
 
-                      {/* REAL STARS */}
+                      {/* STARS */}
                       <div className="movie-rating">
                         <span className="stars">★★★★★</span>
                         <span className="rating-score">4.5/5</span>
@@ -181,13 +182,15 @@ export default function Films() {
                         masterpiece in {film.genre.toLowerCase()}.
                       </p>
 
-                      {/* REAL HEART ICONS */}
+                      {/* HEART ICONS */}
                       <button
                         onClick={(e) => toggleLike(film.id, e)}
                         className={`btn-like ${isLiked ? "liked" : ""}`}
                         aria-label={isLiked ? "Unlike" : "Like"}
                       >
-                        {isLiked ? "Red Heart" : "Empty Heart"}
+                        <span aria-hidden="true">
+                          {isLiked ? "❤️" : "🤍"}
+                        </span>
                       </button>
                     </div>
                   </article>
