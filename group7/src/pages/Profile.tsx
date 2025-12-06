@@ -61,8 +61,13 @@ export default function Profile() {
             <button className="btn-primary">
               <span>Edit Profile</span>
             </button>
-            <button className="btn-outline">
-              <span>Follow</span>
+            <button
+              className="btn-outline"
+              onClick={() => {
+                window.location.href = "/login";
+              }}
+            >
+              <span>Signout</span>
             </button>
           </div>
         </header>
@@ -171,11 +176,7 @@ export default function Profile() {
 
             {/* --- Parasite --- */}
             <article className="movie-card">
-              <img
-                src={ParasiteImg}
-                alt="Parasite"
-                className="movie-poster"
-              />
+              <img src={ParasiteImg} alt="Parasite" className="movie-poster" />
               <div className="movie-content">
                 <h3 className="movie-title">Parasite</h3>
                 <span className="movie-badge">2019 • Drama</span>
@@ -203,19 +204,11 @@ export default function Profile() {
             <FilmLogs />
           </div>
         </section>
-
-        {/* Footer */}
-        <footer className="profile-footer">
-          <p>
-            &copy; 2025 Letterboxd-Inspired App. Connect with fellow film lovers
-            worldwide.
-          </p>
-        </footer>
       </div>
 
       {/* Secondary layout (unchanged except avatar src remains) */}
       <section className="space-y-6 p-4">
-        <header className="flex items-center gap-6">
+        {/* <header className="flex items-center gap-6">
           <img
             src={profilePicUrl}
             alt={`${currentUser.username}'s avatar`}
@@ -263,10 +256,10 @@ export default function Profile() {
               </Link>
             </div>
           </div>
-        </header>
+        </header> */}
 
         {/* Friends List */}
-        <section>
+        {/* <section>
           <h2 className="mb-3 text-lg font-semibold">
             Your Friends ({friends.length})
           </h2>
@@ -281,7 +274,7 @@ export default function Profile() {
               </li>
             ))}
           </ul>
-        </section>
+        </section> */}
       </section>
     </>
   );
