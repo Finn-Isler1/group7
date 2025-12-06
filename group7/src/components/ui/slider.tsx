@@ -56,7 +56,7 @@ function Slider({
           data-slot="slider-thumb"
           key={index}
           className={cn(
-            "block h-6 w-6 shrink-0 rounded-full border-none bg-[#ff8e53] shadow-lg transition-[box-shadow] focus-visible:ring-4 focus-visible:ring-[#ff8e53]/50 focus-visible:outline-none",
+            "block h-6 w-6 shrink-0 rounded-full border-none bg-[#ff8000] shadow-lg transition-[box-shadow] focus-visible:ring-4 focus-visible:ring-[#ff8e53]/50 focus-visible:outline-none",
           )}
         />
       ))}

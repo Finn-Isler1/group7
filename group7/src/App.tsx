@@ -18,6 +18,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import SearchResults from "./pages/SearchResults";
 import Filters from "./pages/Filters";
+import Settings from "./pages/Settings";
 
 // Optional standalone Following page (if you still want it)
 import AllReviews from "./pages/AllReviews";
@@ -52,6 +53,7 @@ function App() {
           {/* Account Pages */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/settings" element={<Settings />} />
 
           {/* Extra Testing Page */}
           <Route path="/testing" element={<Testing />} />

@@ -1311,16 +1311,28 @@ Positioning
       color: #555;
     }
 
-    .BtnOutline {
-      padding: 12px 32px; /* slightly smaller button */
-      font-size: 16px;
-      border-radius: 14px;
-      border: 2px solid rgba(0,0,0,0.15);
-      color: #111;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
+    .FilmDetailsTopBar {
+          position: sticky;
+          top: 0;
+          z-index: 50;
+          backdrop-filter: blur(12px);
+          background: rgba(255,255,255,0.75);
+          padding: 18px 32px;
+          border-bottom: 1px solid #ccc;
+        }
 
-    .BtnOutline:hover {
-      background: rgba(0,0,0,0.05);
-    }
+        .BackButton {
+          padding: 10px 24px;
+          border-radius: 12px;
+          border: 1px solid #aaa;
+          background: white;
+          font-size: 15px;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .BackButton:hover {
+          background: #ececec;
+        }

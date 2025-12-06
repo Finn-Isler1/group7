@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import usersDB from "../data/users.json";
 import FilmLogs from "@/components/FilmLogs";
 
-// ✅ Import your local favorite-film images
+// Import images
 import PulpFictionImg from "../assets/71iQzfnYGeL.jpg";
 import EternalSunshineImg from "../assets/s-l1200.jpg";
 import NoCountryImg from "../assets/ncfom.jpg";
@@ -64,10 +64,10 @@ export default function Profile() {
             <button
               className="btn-outline"
               onClick={() => {
-                window.location.href = "/login";
+                window.location.href = "/settings";
               }}
             >
-              <span>Signout</span>
+              <span>Settings</span>
             </button>
           </div>
         </header>
