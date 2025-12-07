@@ -4,6 +4,7 @@ import FilmsDB from "../data/films.json";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LogFilmModal from "../components/ui/LogFilmModal";
+import BackButton from "@/components/ui/BackButton";
 
 interface Film {
   id: number;
@@ -26,9 +27,7 @@ export default function FilmDetails() {
       <div className="FilmDetailsNotFound">
         <div className="FilmDetailsNotFound-inner">
           <h1>Film Not Found</h1>
-          <Link to="/films" className="BackButton">
-            ← Back to Films
-          </Link>
+          <BackButton></BackButton>
         </div>
       </div>
     );
@@ -88,14 +87,42 @@ export default function FilmDetails() {
   // ⭐ NEW STATES
   const [isInWatchlist, setIsInWatchlist] = useState(false);
   const [isInQueue, setIsInQueue] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(false);
+
+  const FAVORITES_STORAGE_KEY = "profileFavorites";
+
+  // gets favorites from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem(FAVORITES_STORAGE_KEY);
+    if (saved) {
+      const favorites = JSON.parse(saved);
+      if (film && favorites.includes(film.id)) {
+        setIsFavorited(true);
+      }
+    }
+  }, [film?.id]);
+
+  const toggleFavorite = () => {
+    if (!film) return;
+    const saved = localStorage.getItem(FAVORITES_STORAGE_KEY);
+    const favorites = saved ? JSON.parse(saved) : [];
+
+    let updated: number[];
+    if (favorites.includes(film.id)) {
+      updated = favorites.filter((id: number) => id !== film.id);
+      setIsFavorited(false);
+    } else {
+      updated = [...favorites, film.id];
+      setIsFavorited(true);
+    }
+    localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(updated));
+  };
 
   return (
     <div className="FilmDetailsPage">
       {/* Sticky Top Nav */}
       <div className="FilmDetailsTopBar">
-        <Link to="/films" className="BackButton">
-          ← Back to Films
-        </Link>
+        <BackButton></BackButton>
       </div>
 
       {/* HERO SECTION */}
@@ -144,6 +171,16 @@ export default function FilmDetails() {
                 }}
               >
                 ★ Rate / Review
+              </button>
+
+              {/* ⭐ FAVORITE BUTTON */}
+              <button
+                className={`btn-outline border-2 px-8 py-4 text-lg shadow-sm hover:shadow-md ${
+                  isFavorited ? "bg-black-color text-white-color" : ""
+                }`}
+                onClick={toggleFavorite}
+              >
+                {isFavorited ? "Favorited" : "Add to Favorites"}
               </button>
 
               {/* ⭐ WATCHLIST BUTTON */}

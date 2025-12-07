@@ -19,7 +19,7 @@ export default function Settings() {
       {/* Centered Container */}
       <div className="flex w-full max-w-4xl flex-col items-center px-6 py-12">
         <div className="FilmDetailsTopBar mb-12 w-full">
-          <Link to="/films" className="BackButton">
+          <Link to="/profile" className="BackButton">
             ← Back to Profile
           </Link>
         </div>

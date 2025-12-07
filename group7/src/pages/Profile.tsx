@@ -1,15 +1,42 @@
 // Profile.tsx - enhanced Letterboxd-style profile with improved responsive layout
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import usersDB from "../data/users.json";
+import filmsDB from "../data/films.json";
 import FilmLogs from "@/components/FilmLogs";
 
-// Import images
-import PulpFictionImg from "../assets/71iQzfnYGeL.jpg";
-import EternalSunshineImg from "../assets/s-l1200.jpg";
-import NoCountryImg from "../assets/ncfom.jpg";
-import ParasiteImg from "../assets/parasite.jpg";
+interface Film {
+  id: number;
+  title: string;
+  director: string;
+  year: number;
+  genre: string;
+  language: string;
+  rating: number;
+  poster?: string;
+}
+
+const FAVORITES_STORAGE_KEY = "profileFavorites";
 
 export default function Profile() {
+  // gets favorites from localStorage w/ favorites_storage_key
+  const [favorites, setFavorites] = useState<number[]>(() => {
+    const saved = localStorage.getItem(FAVORITES_STORAGE_KEY);
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  // awaits storage changes to update favorites across tabs
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const saved = localStorage.getItem(FAVORITES_STORAGE_KEY);
+      if (saved) {
+        setFavorites(JSON.parse(saved));
+      }
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+
   const currentUser = usersDB.UsersDB[0];
 
   const followersCount = currentUser.followers?.length ?? 237;
@@ -28,6 +55,36 @@ export default function Profile() {
   // Avatar
   const profilePicUrl =
     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&auto=format&q=80";
+
+  // getting favorite films from films.json
+  const favoriteFilms = filmsDB.FilmsDB.filter((film) =>
+    favorites.includes(film.id),
+  );
+
+  const toggleFavorite = (filmId: number) => {
+    setFavorites((prev) => {
+      const updated = prev.includes(filmId)
+        ? prev.filter((id) => id !== filmId)
+        : [...prev, filmId];
+      localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(updated));
+      return updated;
+    });
+  };
+
+  // get star rating dsplay
+  const renderStars = (rating: number) => {
+    const fullStars = Math.floor(rating);
+    return "★".repeat(fullStars) + "☆".repeat(5 - fullStars);
+  };
+
+  // get img, if not found uses placeholder
+  const getImageUrl = (filename: string | undefined) => {
+    try {
+      return new URL(`../assets/${filename}`, import.meta.url).href;
+    } catch {
+      return "https://via.placeholder.com/300x450.png?text=No+Image";
+    }
+  };
 
   return (
     <>
@@ -50,9 +107,15 @@ export default function Profile() {
                 "Films are my escape hatch from reality."
               </p>
               <div className="user-badges">
-                <span className="badge pro">Pro Member</span>
-                <span className="badge followers">1K Followers</span>
-                <span className="badge following">Following 89</span>
+                <Link to="/" className="badge following">
+                  Pro Member
+                </Link>
+                <Link to="/friends" className="badge following">
+                  1K Followers
+                </Link>
+                <Link to="/friends" className="badge following">
+                  Following 89
+                </Link>
               </div>
             </div>
           </div>
@@ -114,92 +177,65 @@ export default function Profile() {
         <section className="favorites-section">
           <div className="section-header">
             <h2 className="section-title">Favorite Films</h2>
-            <button className="btn-link">See Full List</button>
+            {favoriteFilms.length > 0 && (
+              <button className="btn-link">See Full List</button>
+            )}
           </div>
 
-          <div className="movies-grid">
-            {/* --- Pulp Fiction --- */}
-            <article className="movie-card">
-              <img
-                src={PulpFictionImg}
-                alt="Pulp Fiction"
-                className="movie-poster"
-              />
-              <div className="movie-content">
-                <h3 className="movie-title">Pulp Fiction</h3>
-                <span className="movie-badge">1994 • Crime</span>
-                <div className="movie-rating">
-                  <span className="stars">★★★★★</span>
-                  <span className="rating-score">5/5</span>
-                </div>
-                <p className="review-snippet">
-                  Tarantino's nonlinear masterpiece—dialogue that lingers.
-                </p>
-                <button className="btn-like">❤️</button>
-              </div>
-            </article>
+          {favoriteFilms.length === 0 ? (
+            <div
+              style={{ padding: "2rem", textAlign: "center", color: "#666" }}
+            >
+              <p>
+                No favorite films yet. Visit the Films page to heart your
+                favorites!
+              </p>
 
-            {/* --- Eternal Sunshine --- */}
-            <article className="movie-card">
-              <img
-                src={EternalSunshineImg}
-                alt="Eternal Sunshine of the Spotless Mind"
-                className="movie-poster"
-              />
-              <div className="movie-content">
-                <h3 className="movie-title">
-                  Eternal Sunshine of the Spotless Mind
-                </h3>
-                <span className="movie-badge">2004 • Sci-Fi</span>
-                <div className="movie-rating">
-                  <span className="stars">★★★★★</span>
-                  <span className="rating-score">5/5</span>
-                </div>
-                <p className="review-snippet">
-                  Heartbreakingly inventive—love's messy persistence.
-                </p>
-                <button className="btn-like">❤️</button>
-              </div>
-            </article>
-
-            {/* --- No Country for Old Men --- */}
-            <article className="movie-card">
-              <img
-                src={NoCountryImg}
-                alt="No Country for Old Men"
-                className="movie-poster"
-              />
-              <div className="movie-content">
-                <h3 className="movie-title">No Country for Old Men</h3>
-                <span className="movie-badge">2007 • Thriller</span>
-                <div className="movie-rating">
-                  <span className="stars">★★★★☆</span>
-                  <span className="rating-score">4/5</span>
-                </div>
-                <p className="review-snippet">
-                  Coens' tense philosophy—fate's coin flip.
-                </p>
-                <button className="btn-like">❤️</button>
-              </div>
-            </article>
-
-            {/* --- Parasite --- */}
-            <article className="movie-card">
-              <img src={ParasiteImg} alt="Parasite" className="movie-poster" />
-              <div className="movie-content">
-                <h3 className="movie-title">Parasite</h3>
-                <span className="movie-badge">2019 • Drama</span>
-                <div className="movie-rating">
-                  <span className="stars">★★★★★</span>
-                  <span className="rating-score">5/5</span>
-                </div>
-                <p className="review-snippet">
-                  Bong's razor-sharp class satire—unforgettable twists.
-                </p>
-                <button className="btn-like">❤️</button>
-              </div>
-            </article>
-          </div>
+              <Link to="/films" className="blue mt-4">
+                Browse Films
+              </Link>
+            </div>
+          ) : (
+            <div className="movies-grid">
+              {favoriteFilms.map((film) => (
+                <Link key={film.id} to={`/films/${film.id}`} className="block">
+                  <article className="movie-card">
+                    <img
+                      src={getImageUrl(film.poster)}
+                      alt={film.title}
+                      className="movie-poster"
+                    />
+                    <div className="movie-content">
+                      <h3 className="movie-title">{film.title}</h3>
+                      <span className="movie-badge">
+                        {film.year} • {film.genre}
+                      </span>
+                      <div className="movie-rating">
+                        <span className="stars">
+                          {renderStars(film.rating)}
+                        </span>
+                        <span className="rating-score">{film.rating}/5</span>
+                      </div>
+                      <p className="review-snippet">
+                        Directed by <strong>{film.director}</strong>.
+                      </p>
+                      <button
+                        className="btn-like"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          toggleFavorite(film.id);
+                        }}
+                        title="Remove from favorites"
+                      >
+                        ❤️
+                      </button>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Activity Section */}
