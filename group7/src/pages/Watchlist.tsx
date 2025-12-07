@@ -1,5 +1,4 @@
 // src/pages/Watchlist.tsx
-import React from "react";
 
 type Movie = {
   title: string;
@@ -25,38 +24,37 @@ const WATCHLIST_MOVIES: Movie[] = [
     title: "Dune: Part Two",
     year: "2024",
     genre: "SCI-FI",
-    poster: "https://via.placeholder.com/400x600/4b6cb7/ffffff?text=Dune+Part+Two",
+    poster:
+      "https://via.placeholder.com/400x600/4b6cb7/ffffff?text=Dune+Part+Two",
   },
   {
     title: "Poor Things",
     year: "2023",
     genre: "FANTASY",
-    poster: "https://via.placeholder.com/400x600/bb86fc/ffffff?text=Poor+Things",
+    poster:
+      "https://via.placeholder.com/400x600/bb86fc/ffffff?text=Poor+Things",
   },
 ];
 
 const QUEUE_MOVIES: Movie[] = [
-  WATCHLIST_MOVIES[2], 
-  WATCHLIST_MOVIES[0], 
-  WATCHLIST_MOVIES[3], 
-  WATCHLIST_MOVIES[1], 
+  WATCHLIST_MOVIES[2],
+  WATCHLIST_MOVIES[0],
+  WATCHLIST_MOVIES[3],
+  WATCHLIST_MOVIES[1],
 ];
-
 
 export default function Watchlist() {
   return (
-   
-    <div className="min-h-screen bg-white-color text-black-color pt-20 pb-10 px-4 sm:px-8 lg:px-16">
+    <div className="bg-white-color text-black-color min-h-screen px-4 pt-20 pb-10 sm:px-8 lg:px-16">
       {/* Your Queue */}
       <section className="mb-12">
         <div className="mb-6 flex items-center gap-3">
           <h1 className="text-3xl font-bold">Your Queue</h1>
-          <button className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-white text-xl leading-none">
+          <button className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-xl leading-none text-white">
             +
           </button>
         </div>
-        <br>
-        </br>
+        <br></br>
 
         <div className="flex flex-wrap gap-6">
           {QUEUE_MOVIES.map((movie) => (
@@ -66,7 +64,7 @@ export default function Watchlist() {
                 alt={movie.title}
                 className="h-auto w-full rounded-lg shadow-md"
               />
-              <h3 className="mt-2 text-sm font-semibold leading-tight">
+              <h3 className="mt-2 text-sm leading-tight font-semibold">
                 {movie.title}
               </h3>
               <p className="text-xs text-gray-500">
@@ -77,21 +75,18 @@ export default function Watchlist() {
         </div>
       </section>
 
-      <br>
-        </br>
-        <br>
-        </br>
+      <br></br>
+      <br></br>
       {/* Your Watchlist */}
       <section>
         <div className="mb-6 flex items-center gap-3">
           <h2 className="text-3xl font-bold">Your Watchlist</h2>
-          <button className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-white text-xl leading-none">
+          <button className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-xl leading-none text-white">
             +
           </button>
         </div>
 
-        <br>
-        </br>
+        <br></br>
 
         <div className="flex flex-wrap gap-6">
           {WATCHLIST_MOVIES.map((movie) => (
@@ -101,7 +96,7 @@ export default function Watchlist() {
                 alt={movie.title}
                 className="h-auto w-full rounded-lg shadow-md"
               />
-              <h3 className="mt-2 text-sm font-semibold leading-tight">
+              <h3 className="mt-2 text-sm leading-tight font-semibold">
                 {movie.title}
               </h3>
               <p className="text-xs text-gray-500">

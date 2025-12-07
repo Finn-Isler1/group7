@@ -1,5 +1,5 @@
 // src/pages/AllReviews.tsx
-import React from "react";
+
 import { Link, useNavigate, useParams } from "react-router-dom";
 import FilmsDB from "../data/films.json";
 
@@ -120,7 +120,7 @@ export default function AllReviews() {
             className="bg-white-color mb-16 flex gap-6 rounded-xl p-6 shadow-sm"
           >
             {/* POSTER */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               {posterUrl ? (
                 <img
                   src={posterUrl}

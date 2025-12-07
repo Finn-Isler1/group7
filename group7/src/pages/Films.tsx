@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import filmsDB from "../data/films.json";
-import type { MouseEvent } from "react";
 
 interface Film {
   id: number;

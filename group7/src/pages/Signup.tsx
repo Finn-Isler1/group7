@@ -1,23 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
-import {
-  Field,
-  FieldDescription,
-  FieldGroup,
-  FieldLabel,
-  FieldSet,
-} from "@/components/ui/field";
+import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
 import {
   AlertDialog,
   AlertDialogAction,
-  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 
@@ -54,7 +44,7 @@ export default function Signup() {
   };
   return (
     <>
-      <div className="flex min-h-screen flex-col items-center bg-gradient-to-br pt-28 pb-20">
+      <div className="flex min-h-screen flex-col items-center bg-linear-to-br pt-28 pb-20">
         {/* HERO / TITLE */}
         <header className="flex w-full flex-col items-center justify-center px-6 pt-32 pb-12 text-center">
           <h1 className="mb-6 text-6xl font-black tracking-tight text-gray-900 md:text-7xl lg:text-8xl">
