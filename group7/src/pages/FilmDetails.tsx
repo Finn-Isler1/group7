@@ -4,6 +4,7 @@ import FilmsDB from "../data/films.json";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LogFilmModal from "../components/ui/LogFilmModal";
+import BackButton from "@/components/ui/BackButton";
 
 interface Film {
   id: number;
@@ -26,9 +27,7 @@ export default function FilmDetails() {
       <div className="FilmDetailsNotFound">
         <div className="FilmDetailsNotFound-inner">
           <h1>Film Not Found</h1>
-          <Link to="/films" className="BackButton">
-            ← Back to Films
-          </Link>
+          <BackButton></BackButton>
         </div>
       </div>
     );
@@ -123,9 +122,7 @@ export default function FilmDetails() {
     <div className="FilmDetailsPage">
       {/* Sticky Top Nav */}
       <div className="FilmDetailsTopBar">
-        <Link to="/films" className="BackButton">
-          ← Back to Films
-        </Link>
+        <BackButton></BackButton>
       </div>
 
       {/* HERO SECTION */}
