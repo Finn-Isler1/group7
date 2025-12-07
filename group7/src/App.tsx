@@ -1,3 +1,4 @@
+// src/App.tsx
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -5,7 +6,7 @@ import "./styles/App.css";
 
 import { Route, Routes } from "react-router-dom";
 
-// Existing page imports
+// Page imports
 import Home from "./pages/Home";
 import Films from "./pages/Films";
 import FilmDetails from "./pages/FilmDetails";
@@ -15,6 +16,13 @@ import Profile from "./pages/Profile";
 import Testing from "./pages/Testing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import SearchResults from "./pages/SearchResults";
+import Filters from "./pages/Filters";
+import Settings from "./pages/Settings";
+
+// Optional standalone Following page (if you still want it)
+import AllReviews from "./pages/AllReviews";
+import Watchlist from "./pages/Watchlist";
 import Followers from "./pages/Followers";
 import Following from "./pages/Following";
 
@@ -29,11 +37,16 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/films" element={<Films />} />
           <Route path="/films/:id" element={<FilmDetails />} />
+          <Route path="/searchresults" element={<SearchResults />} />
+          <Route path="/filters" element={<Filters />} />
 
           {/* Your Pages */}
           <Route path="/friends" element={<Friends />} />
           <Route path="/friends/:id" element={<FriendDetails />} />
           <Route path="/profile" element={<Profile />} />
+
+          {/* Watchlist page */}
+          <Route path="/watchlist" element={<Watchlist />} />
 
           {/* Optional individual following page */}
           <Route path="/following" element={<Following />} />
@@ -42,9 +55,13 @@ function App() {
           {/* Account Pages */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/settings" element={<Settings />} />
 
           {/* Extra Testing Page */}
           <Route path="/testing" element={<Testing />} />
+
+          {/* Film-specific reviews page */}
+          <Route path="/films/:id/reviews" element={<AllReviews />} />
         </Routes>
       </div>
 

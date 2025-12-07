@@ -1,18 +1,19 @@
-/* Enhanced Professional Stylesheet - Optimized for Movie App */
-/* Preserved Exact Colors: Primary #40bcf4, White #f4f4f4, Black #1b1b1b, Gray #666 */
-/* Focus: Smooth animations, accessibility, responsiveness, subtle depth */
+/* Enhanced Professional Stylesheet - Cleaned for Tailwind Compatibility */
+/* Preserved Colors: Primary #40bcf4, White #f4f4f4, Black #1b1b1b, Gray #666 */
 @import "tailwindcss";
 @import "tw-animate-css";
-@custom-variant dark (&:is(.dark *));
-/* varialbes */
 
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
 @theme {
   --color-border: var(--border);
   --color-ring: var(--ring);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
-
 
 :root {
   --primary-color: #40bcf4;
@@ -21,16 +22,19 @@
   --gray: #666;
   --gray-light: #999;
   --gray-dark: #333;
-  --secondary-accent: #ff8000; /* For ratings/stars */
+  --secondary-accent: #ff8000;
   --border-radius-sm: 0.5rem;
   --border-radius: 0.75rem;
   --border-radius-lg: 1rem;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
@@ -65,7 +69,9 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
 }
 
-/* Basic Setup - Precision Typography & Reset */
+/* ============================================
+   BASIC RESET & TYPOGRAPHY
+   ============================================ */
 *,
 *::before,
 *::after {
@@ -91,24 +97,88 @@ body {
   width: 100%;
 }
 
+
+/* Navigation - Fixed height, proper spacing, branded CineLog */
 /* Navigation - Sleek Fixed Bar with Subtle Blur */
+
+/* ============================================
+   NAVIGATION - Fixed Top Bar
+   ============================================ */
 .nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  height: 70px;
   background-color: rgba(27, 27, 27, 0.98);
   backdrop-filter: blur(20px) saturate(180%);
-  color: var(--white-color);
+  color: white;
   display: flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  box-shadow: var(--shadow-md);
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: rgba(27, 27, 27, 0.98);
+  backdrop-filter: blur(20px) saturate(180%);
+  color: white;
+  display: flex;
+  align-items: center;
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-title {
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: white;
+}
+
+/* Change app name to CineLog */
+.nav-title::before {
+  content: "CineLog";
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: white;
+}
+
+/* Change app name to CineLog */
+.nav-title::before {
+  content: "CineLog";
+}
+
+.nav ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav ul li a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav ul li a:hover,
+.nav ul li a.active {
+  color: var(--primary-color);
+}
+
+/* Page Containers - Adaptive Padding for Fixed Nav */
+.home-container,
+.profile-container {
+  padding-top: 5rem; /* Precise clearance for nav */
+  padding-bottom: 2rem;
+}
+
+/* Header Section - Refined Flex with Depth */
+.home-header,
+.profile-header {
+  display: flex;
   font-size: 1.5rem;
   font-weight: 700;
   margin-right: auto;
@@ -117,75 +187,62 @@ body {
   transition: var(--transition-fast);
 }
 
+.nav-title::before {
+  content: "CineLog";
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: white;
+}
+
+/* Change app name to CineLog */
+.nav-title::before {
+  content: "CineLog";
+}
+
 .nav-title:hover {
   color: var(--primary-color);
   transform: scale(1.02);
 }
 
 .nav ul {
-  list-style: none;
   display: flex;
-  gap: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.nav ul li {
-  position: relative;
+  gap: 2.5rem;
+  list-style: none;
 }
 
 .nav ul li a {
-  padding: 0.75rem 1.25rem;
-  text-decoration: none;
-  color: var(--white-color);
-  border-radius: var(--border-radius-sm);
-  transition: var(--transition-smooth);
+  color: white;
   font-weight: 500;
-  cursor: pointer;
-  display: block;
+  text-decoration: none;
+  padding: 0.5rem 0;
   position: relative;
-  overflow: hidden;
+  transition: color 0.3s ease;
 }
 
-.nav ul li a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(64, 188, 244, 0.1), transparent);
-  transition: left 0.5s;
-}
-
-.nav ul li a:hover::before {
-  left: 100%;
-}
-
-.nav ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: translateY(-1px);
+.nav ul li a:hover,
+.nav ul li a.active {
   color: var(--primary-color);
-}
-
-.nav ul a.active {
-  color: var(--primary-color);
-  background-color: rgba(64, 188, 244, 0.15);
-  box-shadow: inset 0 0 0 1px rgba(64, 188, 244, 0.3);
 }
 
 /* Page Containers - Adaptive Padding for Fixed Nav */
-.home-container, .profile-container {
+.home-container,
+.profile-container {
   padding-top: 5rem; /* Precise clearance for nav */
   padding-bottom: 2rem;
 }
 
 /* Header Section - Refined Flex with Depth */
-.home-header, .profile-header {
+.home-header,
+.profile-header {
   display: flex;
   align-items: center;
   padding: 2.5rem;
-  background: linear-gradient(135deg, var(--white-color) 0%, rgba(244, 244, 244, 0.8) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--white-color) 0%,
+    rgba(244, 244, 244, 0.8) 100%
+  );
   border-radius: var(--border-radius-lg);
   margin-bottom: 2.5rem;
   box-shadow: var(--shadow-md);
@@ -194,8 +251,9 @@ body {
   overflow: hidden;
 }
 
-.home-header::before, .profile-header::before {
-  content: '';
+.home-header::before,
+.profile-header::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -204,11 +262,13 @@ body {
   background: linear-gradient(90deg, var(--primary-color), transparent);
 }
 
-.hero-content, .user-avatar-section {
+.hero-content,
+.user-avatar-section {
   flex: 1;
 }
 
-.hero-title, .user-name {
+.hero-title,
+.user-name {
   font-size: 2.75rem;
   font-weight: 800;
   margin-bottom: 1rem;
@@ -216,7 +276,8 @@ body {
   letter-spacing: -0.025em;
 }
 
-.hero-subtitle, .user-bio {
+.hero-subtitle,
+.user-bio {
   font-size: 1.25rem;
   margin-bottom: 1.75rem;
   color: var(--gray);
@@ -224,13 +285,22 @@ body {
   opacity: 0.9;
 }
 
-.hero-buttons, .profile-buttons {
+.hero-buttons,
+.profile-buttons {
   display: flex;
   gap: 1.25rem;
   flex-wrap: wrap;
 }
 
-.btn-primary, .btn-outline {
+/* Page Containers - Adaptive Padding for Fixed Nav */
+.home-container,
+.profile-container {
+  padding-top: 5rem; /* Precise clearance for nav */
+  padding-bottom: 2rem;
+}
+
+-primary,
+.btn-outline {
   padding: 1rem 2rem;
   border: none;
   cursor: pointer;
@@ -254,13 +324,18 @@ body {
 }
 
 .btn-primary::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -287,6 +362,88 @@ body {
   box-shadow: var(--shadow-md);
 }
 
+.btn-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: var(--transition-fast);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-sm);
+  background: rgba(64, 188, 244, 0.1);
+  border: 1px solid rgba(64, 188, 244, 0.2);
+}
+
+.btn-link:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+  transform: translateY(-1px);
+}
+
+/*  ***********
+HOME PAGE 
+************/
+
+.home-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 2rem;
+}
+
+.home-header {
+  display: flex;
+  align-items: center;
+  padding: 2.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--white-color) 0%,
+    rgba(244, 244, 244, 0.8) 100%
+  );
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--black-color);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 1.75rem;
+  color: var(--gray);
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
 .hero-bg {
   width: 280px;
   height: 200px;
@@ -300,19 +457,60 @@ body {
 }
 
 .hero-bg::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 70%
+  );
   animation: float 6s ease-in-out infinite;
 }
+/* ============================================
+   PROFILE PAGE COMPONENTS
+   ============================================ */
+.profile-container {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(1deg); }
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 2.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--white-color) 0%,
+    rgba(244, 244, 244, 0.8) 100%
+  );
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+.user-avatar-section {
+  display: flex;
+  align-items: center;
+  flex: 1;
 }
 
 .user-avatar {
@@ -329,6 +527,27 @@ body {
 .user-avatar:hover {
   transform: scale(1.05);
   box-shadow: 0 0 0 4px rgba(64, 188, 244, 0.2);
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--black-color);
+}
+
+.user-bio {
+  font-size: 1.25rem;
+  margin-bottom: 1.75rem;
+  color: var(--gray);
+  font-weight: 400;
+  opacity: 0.9;
 }
 
 .user-badges {
@@ -351,13 +570,18 @@ body {
 }
 
 .badge::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -371,7 +595,15 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-/* Stats - Elevated Grid with Micro-Animations */
+.profile-buttons {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   STATS SECTION
+   ============================================ */
 .stats-section {
   margin-bottom: 3rem;
 }
@@ -384,7 +616,11 @@ body {
 
 .stat-card {
   padding: 2rem;
-  background: linear-gradient(135deg, var(--white-color) 0%, rgba(244, 244, 244, 0.6) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--white-color) 0%,
+    rgba(244, 244, 244, 0.6) 100%
+  );
   text-align: center;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-sm);
@@ -395,13 +631,17 @@ body {
 }
 
 .stat-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-accent));
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-accent)
+  );
 }
 
 .stat-card:hover {
@@ -427,10 +667,18 @@ body {
   letter-spacing: -0.05em;
 }
 
-.amber { color: var(--secondary-accent); }
-.green { color: #4caf50; }
-.blue { color: var(--primary-color); }
-.purple { color: #9c27b0; }
+.amber {
+  color: var(--secondary-accent);
+}
+.green {
+  color: #4caf50;
+}
+.blue {
+  color: var(--primary-color);
+}
+.purple {
+  color: #9c27b0;
+}
 
 .stat-desc {
   font-size: 1rem;
@@ -439,7 +687,9 @@ body {
   opacity: 0.7;
 }
 
-/* Section Headers - Refined with Subtle Divider */
+/* ============================================
+   SECTION HEADERS
+   ============================================ */
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -451,7 +701,7 @@ body {
 }
 
 .section-header::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -466,38 +716,16 @@ body {
   letter-spacing: -0.025em;
 }
 
-.btn-link {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: var(--transition-fast);
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius-sm);
-  background: rgba(64, 188, 244, 0.1);
-  border: 1px solid rgba(64, 188, 244, 0.2);
-}
-
-.btn-link:hover {
-  background: var(--primary-color);
-  color: var(--white-color);
-  transform: translateY(-1px);
-}
-
-/* Movies Grid - Optimized Responsive Masonry */
-.movies-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  align-items: start; /* For masonry effect */
-}
-
+/* ============================================
+   MOVIE CARDS - KEPT FOR SPECIFIC STYLING
+   Only hover effects and animations
+   ============================================ */
 .movie-card {
   background-color: var(--white-color);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  transition: var(--transition-smooth);
+  transition: all 0.35s ease;
   position: relative;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.03);
@@ -511,7 +739,7 @@ body {
 
 .movie-poster {
   width: 100%;
-  height: 400px; /* Optimized 2:3 ratio */
+  height: 400px;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
@@ -558,8 +786,13 @@ body {
 }
 
 @keyframes shimmer {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .rating-score {
@@ -601,7 +834,18 @@ body {
   transform: scale(1);
 }
 
-/* Activity Feed - Refined List with Depth */
+.btn-like:hover,
+.btn-like.liked {
+  transform: scale(1.2);
+}
+
+/* ============================================
+   ACTIVITY SECTION
+   ============================================ */
+.activity-section {
+  margin-bottom: 3rem;
+}
+
 .activity-feed {
   display: flex;
   flex-direction: column;
@@ -612,7 +856,11 @@ body {
   display: flex;
   gap: 1.25rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, var(--white-color) 0%, rgba(244, 244, 244, 0.5) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--white-color) 0%,
+    rgba(244, 244, 244, 0.5) 100%
+  );
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-sm);
   transition: var(--transition-smooth);
@@ -658,63 +906,84 @@ body {
   opacity: 0.9;
 }
 
-/* Footer - Polished & Centered */
-.home-footer, .profile-footer {
+/* ============================================
+   FAVORITES SECTION
+   ============================================ */
+.favorites-section {
+  margin-bottom: 3rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.profile-footer,
+footer {
   text-align: center;
   padding: 3rem 1.5rem;
   color: var(--gray);
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   font-size: 0.875rem;
   opacity: 0.7;
+  margin-top: 4rem;
 }
 
-/* Ultra-Responsive Mobile - Prioritize Touch & Readability */
-@media (max-width: 768px) {
-  .content-container {
-    padding: 1rem;
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
   }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
 
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
   .nav {
     padding: 1rem;
     flex-direction: column;
+    height: auto;
     gap: 1rem;
-    text-align: center;
   }
 
   .nav ul {
-    gap: 1rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .home-header, .profile-header {
+  .profile-header {
     flex-direction: column;
     text-align: center;
     padding: 2rem 1.5rem;
   }
 
-  .hero-title, .user-name {
+  .user-avatar-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .user-avatar {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .user-name {
     font-size: 2.25rem;
   }
 
-  .hero-buttons, .profile-buttons {
+  .profile-buttons {
     justify-content: center;
     gap: 1rem;
-  }
-
-  .hero-bg {
-    margin-left: 0;
-    margin-top: 1.5rem;
     width: 100%;
-    height: 200px;
   }
 
   .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .movies-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
@@ -726,14 +995,19 @@ body {
     text-align: center;
   }
 
-  .btn-primary, .btn-outline {
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .btn-primary,
+  .btn-outline {
     flex: 1;
     min-width: 140px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-title, .user-name {
+  .user-name {
     font-size: 1.875rem;
   }
 
@@ -746,7 +1020,9 @@ body {
   }
 }
 
-/* Accessibility & Performance - Inclusive Design */
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
 *:focus-visible {
   outline: 3px solid var(--primary-color);
   outline-offset: 2px;
@@ -763,72 +1039,21 @@ body {
   }
 }
 
-/* High-Contrast Mode Support */
 @media (prefers-contrast: high) {
-  .btn-primary, .btn-outline {
+  .btn-primary,
+  .btn-outline {
     border-width: 2px;
   }
 
-  .movie-card, .stat-card {
+  .movie-card,
+  .stat-card {
     border-width: 2px;
   }
 }
 
-/* Print Styles - Clean for PDF Export */
-@media print {
-  .nav, .hero-buttons button:not(.btn-primary) {
-    display: none;
-  }
-
-  .content-container {
-    max-width: none;
-    padding: 0;
-  }
-
-  .movie-card {
-    break-inside: avoid;
-  }
-}
-/*  
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
-*/
-
+/* ============================================
+   DARK MODE SUPPORT
+   ============================================ */
 .dark {
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
@@ -871,3 +1096,243 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/*
+   PRINT STYLES
+*/
+@media print {
+  .nav,
+  .hero-buttons button:not(.btn-primary) {
+    display: none;
+  }
+
+  .movie-card {
+    break-inside: avoid;
+  }
+}
+
+/* **********
+Positioning
+***********/
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+.home-container {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+  padding: 3rem 0;
+  align-items: stretch;
+}
+
+.navbar {
+  background-color: #1b1b1b;
+  border-bottom: 1px solid #333;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 2.5rem;   /* This pushes MovieApp away from the left edge */
+  padding-right: 2rem;
+}
+
+/* LOGO - stays on the left with your desired spacing */
+.navbar-logo {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* MENU - 100% DEAD CENTER (this is the real fix) */
+.navbar-menu {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 3.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+.nav-link {
+  color: #f4f4f4;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.nav-link:hover {
+  color: #40bcf4;
+  background-color: #2a2a2a;
+}
+
+.nav-link.active {
+  color: #40bcf4;
+  background-color: #2a2a2a;
+}
+
+.navbar-mobile {
+  display: none;
+  color: #40bcf4;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .navbar-menu { display: none; }
+  .navbar-mobile { display: block; }
+}
+@media (min-width: 769px) {
+  .navbar-mobile { display: none; }
+}
+
+/* ————————————————
+   PILL-SHAPED BUTTONS – GLOBAL (Home + Profile + Everywhere)
+   ———————————————— */
+.btn-primary,
+.btn-outline {
+  padding: 0.85rem 2rem;
+  border-radius: 9999px !important;     /* Full pill shape */
+  font-weight: 600;
+  font-size: 1rem;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid transparent; /* Important for consistent sizing */
+}
+
+/* Edit Profile – Black filled pill */
+.btn-primary {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:hover {
+  background-color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Follow – Black outline pill */
+.btn-outline {
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.btn-outline:hover {
+  background-color: #000000;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ————————————————
+   Top Reviews
+   ———————————————— */
+.TopReviewsSection {
+      background: #f3f3f3;
+      color: #111;
+      padding: 60px 32px; /* smaller padding for tighter spacing */
+    }
+
+    .ReviewsGrid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px; /* slightly smaller gap between reviews */
+      margin: 0 auto;
+    }
+
+    .ReviewCard {
+      background: white;
+      padding: 28px; /* slightly smaller padding inside card */
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .ReviewCard:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 50px rgba(0,0,0,0.15);
+    }
+
+    .ReviewHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .ReviewerName {
+      color: #333;
+    }
+
+    .ReviewRating {
+      color: #facc15;
+    }
+
+    .ReviewComment {
+      font-size: 15px;
+      line-height: 1.55;
+      color: #555;
+    }
+
+    .FilmDetailsTopBar {
+          position: sticky;
+          top: 0;
+          z-index: 50;
+          backdrop-filter: blur(12px);
+          background: rgba(255,255,255,0.75);
+          padding: 18px 32px;
+          border-bottom: 1px solid #ccc;
+        }
+
+        .BackButton {
+          padding: 10px 24px;
+          border-radius: 12px;
+          border: 1px solid #aaa;
+          background: white;
+          font-size: 15px;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .BackButton:hover {
+          background: #ececec;
+        }

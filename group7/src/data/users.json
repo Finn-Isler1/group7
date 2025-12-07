@@ -2,16 +2,281 @@
   "UsersDB": [
     {
       "id": 1,
-      "first_name": "",
-      "last_name": "",
-      "username": "",
-      "email": "",
-      "password": "",
-      "member_since": "",
+      "first_name": "Terry",
+      "last_name": "Lewis",
+      "username": "terry_lewis",
+      "email": "terrylewis@gmail.com",
+      "password": "password123",
+      "member_since": "2022-01-15",
+      "picture": "terry_lewis.png",
+      "filmsAllTime": 30,
+      "filmsThisYear": 12, 
+      "friends": [
+        { "id": 2, "name": "John Smith" },
+        { "id": 4, "name": "Joe Johnson" },
+        { "id": 6, "name": "Lucas Brown" }
+      ],
+      "following": [
+        { "id": 3, "name": "Emma Jones" },
+        { "id": 5, "name": "Ava Martinez" },
+        { "id": 8, "name": "Michael Green" }
+      ],
+      "followers": [
+        { "id": 5, "name": "Ava Martinez" },
+        { "id": 7, "name": "Sophia Clark" }
+      ],
+      "requests": [
+        { "id": 9, "name": "David Kim" }
+      ]
+    },
+    {
+      "id": 2,
+      "first_name": "John",
+      "last_name": "Smith",
+      "username": "john_smith",
+      "email": "johnsmith@gmail.com",
+      "password": "password123",
+      "member_since": "2021-11-03",
+      "picture": "john_smith.png",
+      "filmsAllTime": 45,
+      "filmsThisYear": 18,
+      "friends": [
+        { "id": 1, "name": "Terry Lewis" },
+        { "id": 3, "name": "Emma Jones" }
+      ],
+      "following": [
+        { "id": 4, "name": "Joe Johnson" }
+      ],
+      "followers": [
+        { "id": 1, "name": "Terry Lewis" },
+        { "id": 5, "name": "Ava Martinez" },
+        { "id": 6, "name": "Lucas Brown" },
+        { "id": 7, "name": "Sophia Clark" }
+      ],
+      "requests": [
+        { "id": 10, "name": "Sarah Lee" }
+      ]
+    },
+    {
+      "id": 3,
+      "first_name": "Emma",
+      "last_name": "Jones",
+      "username": "emma_jones",
+      "email": "emmajones@gmail.com",
+      "password": "password123",
+      "member_since": "2023-03-22",
+      "picture": "emma_jones.png",
+      "filmsAllTime": 165,
+      "filmsThisYear": 24,
+      "friends": [
+        { "id": 1, "name": "Terry Lewis" },
+        { "id": 2, "name": "John Smith" },
+        { "id": 8, "name": "Michael Green" },
+        { "id": 9, "name": "David Kim" }
+      ],
+      "following": [
+        { "id": 4, "name": "Joe Johnson" },
+        { "id": 6, "name": "Lucas Brown" }
+      ],
+      "followers": [
+        { "id": 2, "name": "John Smith" }
+      ],
+      "requests": []
+    },
+    {
+      "id": 4,
+      "first_name": "Joe",
+      "last_name": "Johnson",
+      "username": "joe_johnson",
+      "email": "joejohnson@gmail.com",
+      "password": "password123",
+      "member_since": "2020-09-10",
+      "picture": "joe_johnson.png",
+      "filmsAllTime": 324,
+      "filmsThisYear": 51,
+      "friends": [
+        { "id": 1, "name": "Terry Lewis" },
+        { "id": 5, "name": "Ava Martinez" }
+      ],
+      "following": [
+        { "id": 2, "name": "John Smith" },
+        { "id": 3, "name": "Emma Jones" },
+        { "id": 5, "name": "Ava Martinez" },
+        { "id": 6, "name": "Lucas Brown" },
+        { "id": 7, "name": "Sophia Clark" }
+      ],
+      "followers": [
+        { "id": 3, "name": "Emma Jones" },       
+        { "id": 6, "name": "Lucas Brown" },
+        { "id": 10, "name": "Sarah Lee" }
 
-      "friends": [],
-      "followers": [],
-      "following": []
+      ],
+      "requests": [
+        { "id": 8, "name": "Michael Green" }
+      ]
+    },
+    {
+      "id": 5,
+      "first_name": "Ava",
+      "last_name": "Martinez",
+      "username": "ava_m",
+      "email": "avam@gmail.com",
+      "password": "password123",
+      "member_since": "2022-06-11",
+      "picture": "ava_martinez.png",
+      "filmsAllTime": 65,
+      "filmsThisYear": 23,
+      "friends": [
+        { "id": 6, "name": "Lucas Brown" },
+        { "id": 7, "name": "Sophia Clark" },
+        { "id": 10, "name": "Sarah Lee" }
+      ],
+      "following": [
+        { "id": 1, "name": "Terry Lewis" },
+        { "id": 2, "name": "John Smith" }
+      ],
+      "followers": [
+        { "id": 1, "name": "Terry Lewis" },
+        { "id": 4, "name": "Joe Johnson" }
+      ],
+      "requests": [
+        { "id": 3, "name": "Emma Jones" }
+      ]
+    },
+    {
+      "id": 6,
+      "first_name": "Lucas",
+      "last_name": "Brown",
+      "username": "lucas_b",
+      "email": "lucasbrown@gmail.com",
+      "password": "password123",
+      "member_since": "2021-04-02",
+      "picture": "lucas_brown.png",
+      "filmsAllTime": 97,
+      "filmsThisYear": 26,
+      "friends": [
+        { "id": 1, "name": "Terry Lewis" },
+        { "id": 3, "name": "Emma Jones" },
+        { "id": 5, "name": "Ava Martinez" }
+      ],
+      "following": [
+        { "id": 4, "name": "Joe Johnson" },
+        { "id": 7, "name": "Sophia Clark" },
+        { "id": 8, "name": "Michael Green" }
+      ],
+      "followers": [
+        { "id": 2, "name": "John Smith" }
+      ],
+      "requests": []
+    },
+    {
+      "id": 7,
+      "first_name": "Sophia",
+      "last_name": "Clark",
+      "username": "sophia_clark",
+      "email": "sophia@gmail.com",
+      "password": "password123",
+      "member_since": "2023-07-19",
+      "picture": "sophia_clark.png",
+      "filmsAllTime": 86,
+      "filmsThisYear": 22,
+      "friends": [
+        { "id": 5, "name": "Ava Martinez" },
+        { "id": 6, "name": "Lucas Brown" },
+        { "id": 8, "name": "Michael Green" },
+        { "id": 10, "name": "Sarah Lee" }
+      ],
+      "following": [
+        { "id": 1, "name": "Terry Lewis" },
+        { "id": 4, "name": "Joe Johnson" }
+      ],
+      "followers": [
+        { "id": 2, "name": "John Smith" }
+      ],
+      "requests": [
+        { "id": 3, "name": "Emma Jones" }
+      ]
+    },
+    {
+      "id": 8,
+      "first_name": "Michael",
+      "last_name": "Green",
+      "username": "michael_g",
+      "email": "michaelgreen@gmail.com",
+      "password": "password123",
+      "member_since": "2020-12-27",
+      "picture": "michael_green.png",
+      "filmsAllTime": 75,
+      "filmsThisYear": 8,
+      "friends": [
+        { "id": 3, "name": "Emma Jones" },
+        { "id": 7, "name": "Sophia Clark" },
+        { "id": 9, "name": "David Kim" }
+      ],
+      "following": [
+        { "id": 1, "name": "Terry Lewis" },
+        { "id": 10, "name": "Sarah Lee" }
+      ],
+      "followers": [
+        { "id": 6, "name": "Lucas Brown" }
+      ],
+      "requests": [
+        { "id": 4, "name": "Joe Johnson" }
+      ]
+    },
+    {
+      "id": 9,
+      "first_name": "David",
+      "last_name": "Kim",
+      "username": "david_kim",
+      "email": "davidkim@gmail.com",
+      "password": "password123",
+      "member_since": "2019-08-14",
+      "picture": "david_kim.png",
+      "filmsAllTime": 36,
+      "filmsThisYear": 4,
+      "friends": [
+        { "id": 3, "name": "Emma Jones" },
+        { "id": 4, "name": "Joe Johnson" },
+        { "id": 8, "name": "Michael Green" }
+      ],
+      "following": [
+        { "id": 7, "name": "Sophia Clark" }
+      ],
+      "followers": [
+        { "id": 4, "name": "Joe Johnson" },
+        { "id": 10, "name": "Sarah Lee" }
+      ],
+      "requests": [
+        { "id": 2, "name": "John Smith" }
+      ]
+    },
+    {
+      "id": 10,
+      "first_name": "Sarah",
+      "last_name": "Lee",
+      "username": "sarah_lee",
+      "email": "sarahlee@gmail.com",
+      "password": "password123",
+      "member_since": "2023-02-05",
+      "picture": "sarah_lee.png",
+      "filmsAllTime": 78,
+      "filmsThisYear": 29,
+      "friends": [
+        { "id": 5, "name": "Ava Martinez" },
+        { "id": 7, "name": "Sophia Clark" }
+      ],
+      "following": [
+        { "id": 2, "name": "John Smith" },
+        { "id": 8, "name": "Michael Green" }
+      ],
+      "followers": [
+        { "id": 7, "name": "Sophia Clark" },
+        { "id": 9, "name": "David Kim" }
+      ],
+      "requests": [
+        { "id": 1, "name": "Terry Lewis" }
+      ]
     }
   ]
 }
