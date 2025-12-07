@@ -11,9 +11,8 @@ import PoorThingsImg from "../assets/poorthings.jpg";
 import DriveImg from "../assets/drive.png";
 
 export default function Home() {
-
   const navigate = useNavigate();
-  
+
   return (
     <div className="home-container">
       {/* Hero Section */}
@@ -27,11 +26,7 @@ export default function Home() {
           </p>
 
           <div className="hero-buttons">
-          
-            <button
-              className="btn-primary"
-              onClick={() => navigate("/films")}
-            >
+            <button className="btn-primary" onClick={() => navigate("/films")}>
               Log a Film
             </button>
 
@@ -47,21 +42,23 @@ export default function Home() {
       </header>
 
       {/* Featured Film Section */}
-      <section className="mx-auto mt-10 mb-16 max-w-6xl px-4">
+      <section className="mx-auto mt-10 mb-32 max-w-6xl px-4">
         <h2 className="mb-4 text-2xl font-bold">Featured Film</h2>
 
         <div className="grid grid-cols-1 items-center gap-6 rounded-2xl bg-white p-4 shadow-md md:grid-cols-3">
           <img
             src={DriveImg}
-            alt="Featured Film"
+            alt="Drive"
             className="h-full w-full rounded-xl object-cover"
           />
 
-          <div className="flex flex-col justify-center gap-4 md:col-span-2">
-            <h3 className="text-center text-xl font-semibold md:text-left">
+          <div className="flex flex-col justify-center gap-6 md:col-span-2">
+            {/* DRIVE TEXT — JUST A TAD SMALLER (PERFECT SIZE NOW) */}
+            <h3 className="text-center text-6xl font-black tracking-tighter text-gray-900 md:text-left md:text-7xl lg:text-8xl">
               Drive
             </h3>
-            <p className="max-h-[32rem] overflow-hidden text-center text-gray-600 md:text-left">
+
+            <p className="text-center text-lg leading-relaxed text-gray-600 md:text-left">
               Driver is a skilled Hollywood stuntman who moonlights as a getaway
               driver for criminals. Though he projects an icy exterior, lately
               he’s been warming up to a pretty neighbor named Irene and her
@@ -71,14 +68,20 @@ export default function Home() {
               Benicio from the vengeful masterminds behind the robbery.
             </p>
 
-            <div className="flex justify-center md:justify-start">
-              <Link to="/films/23" className="btn-primary w-fit">
+            <div className="mt-8 flex justify-center md:justify-start">
+              <Link
+                to="/films/23"
+                className="btn-primary w-fit rounded-full px-12 py-5 text-lg"
+              >
                 View Details
               </Link>
             </div>
           </div>
         </div>
       </section>
+
+      {/* CLEAN SPACER — PERFECT AMOUNT */}
+      <div className="h-20 md:h-24 lg:h-28"></div>
 
       {/* Stats Section */}
       <section className="stats-section">
@@ -88,13 +91,11 @@ export default function Home() {
             <div className="stat-value amber">127</div>
             <p className="stat-desc">This Year</p>
           </div>
-
           <div className="stat-card">
             <h3 className="stat-title">Average Rating</h3>
             <div className="stat-value green">3.8</div>
             <p className="stat-desc">Out of 5</p>
           </div>
-
           <div className="stat-card">
             <h3 className="stat-title">Friends Online</h3>
             <div className="stat-value blue">14</div>
@@ -192,8 +193,5 @@ export default function Home() {
         </div>
       </section>
     </div>
-
-
-
   );
 }
