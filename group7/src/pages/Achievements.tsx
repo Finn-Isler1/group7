@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface Achievement {
   id: number;
@@ -52,23 +53,27 @@ export default function Achievements() {
   const [selected, setSelected] = useState<Achievement | null>(null);
 
   return (
-    <div className="p-10 max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold mb-10 text-center">Achievements</h1>
+    <div className="mx-auto max-w-7xl p-10">
+      <div className="FilmDetailsTopBar mb-12 w-full">
+        <Link to="/profile" className="BackButton">
+          ← Back to Profile
+        </Link>
+      </div>
+      <h1 className="mb-10 text-center text-4xl font-bold">Achievements</h1>
 
       {/* FULL WIREFRAME LAYOUT */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
         {/* LEFT: MILESTONES */}
         <div className="flex flex-col">
-          <h2 className="text-3xl font-semibold mb-4">Milestones</h2>
+          <h2 className="mb-4 text-3xl font-semibold">Milestones</h2>
 
           {/* Outer white box container */}
-          <div className="border rounded-lg bg-white shadow-lg p-6 space-y-4">
+          <div className="space-y-4 rounded-lg border bg-white p-6 shadow-lg">
             {achievementsData.map((ach) => (
               <div
                 key={ach.id}
                 onClick={() => setSelected(ach)}
-                className="flex items-center gap-4 p-5 bg-gray-50 border rounded-lg hover:bg-gray-100 cursor-pointer transition"
+                className="flex cursor-pointer items-center gap-4 rounded-lg border bg-gray-50 p-5 transition hover:bg-gray-100"
               >
                 {/* Icon */}
                 <span className="text-4xl">{ach.icon}</span>
@@ -82,44 +87,43 @@ export default function Achievements() {
 
         {/* RIGHT: DAILY STREAK + CALENDAR */}
         <div className="flex flex-col">
-          
           {/* DAILY STREAK */}
-          <div className="flex flex-col items-center mb-14">
-            <h2 className="text-2xl font-semibold mb-4 text-center">
+          <div className="mb-14 flex flex-col items-center">
+            <h2 className="mb-4 text-center text-2xl font-semibold">
               Daily Streak
             </h2>
 
-            <div className="flex flex-row gap-6 justify-center flex-nowrap">
+            <div className="flex flex-row flex-nowrap justify-center gap-6">
               {streakData.map((active, i) => (
                 <div key={i} className="flex flex-col items-center">
                   <div
-                    className={`w-16 h-16 border rounded flex items-center justify-center text-2xl ${
+                    className={`flex h-16 w-16 items-center justify-center rounded border text-2xl ${
                       active ? "bg-black text-white" : "bg-gray-200"
                     }`}
                   >
                     🎬
                   </div>
-                  <span className="text-sm mt-1">Day {i + 1}</span>
+                  <span className="mt-1 text-sm">Day {i + 1}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* CALENDAR */}
-          <div className="border rounded-lg bg-white shadow-lg w-full">
-            <div className="bg-gray-100 py-3 text-center text-xl font-semibold border-b rounded-t-lg">
+          <div className="w-full rounded-lg border bg-white shadow-lg">
+            <div className="rounded-t-lg border-b bg-gray-100 py-3 text-center text-xl font-semibold">
               Calendar
             </div>
 
             {/* Calendar Days Header */}
-            <div className="grid grid-cols-7 gap-2 text-center font-medium text-gray-600 p-4">
+            <div className="grid grid-cols-7 gap-2 p-4 text-center font-medium text-gray-600">
               {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
                 <div key={d}>{d}</div>
               ))}
             </div>
 
             {/* Calendar Days */}
-            <div className="grid grid-cols-7 gap-3 text-center p-4">
+            <div className="grid grid-cols-7 gap-3 p-4 text-center">
               {Array.from({ length: 30 }).map((_, i) => {
                 const showMovie = [2, 5, 7, 11, 19, 21].includes(i);
                 const showReview = [3, 12, 20].includes(i);
@@ -127,11 +131,11 @@ export default function Achievements() {
                 return (
                   <div
                     key={i}
-                    className="border h-20 flex flex-col items-center justify-center rounded bg-gray-50"
+                    className="flex h-20 flex-col items-center justify-center rounded border bg-gray-50"
                   >
                     {showMovie && <span className="text-xl">🎬</span>}
                     {showReview && <span className="text-xl">📝</span>}
-                    <span className="text-xs mt-1">{i + 1}</span>
+                    <span className="mt-1 text-xs">{i + 1}</span>
                   </div>
                 );
               })}
@@ -151,18 +155,18 @@ export default function Achievements() {
 
       {/* POP-UP MODAL — LARGE */}
       {selected && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4 z-50">
-          <div className="bg-white p-10 rounded-xl shadow-2xl w-full max-w-3xl text-center border">
-            <div className="text-6xl mb-6">{selected.icon}</div>
-            <h3 className="text-4xl font-bold mb-4">{selected.title}</h3>
-            <p className="text-lg mb-4">{selected.description}</p>
-            <p className="text-sm text-gray-600 mb-8">
+        <div className="bg-opacity-40 fixed inset-0 z-50 flex items-center justify-center bg-black p-4">
+          <div className="w-full max-w-3xl rounded-xl border bg-white p-10 text-center shadow-2xl">
+            <div className="mb-6 text-6xl">{selected.icon}</div>
+            <h3 className="mb-4 text-4xl font-bold">{selected.title}</h3>
+            <p className="mb-4 text-lg">{selected.description}</p>
+            <p className="mb-8 text-sm text-gray-600">
               Earned on: <strong>{selected.date}</strong>
             </p>
 
             <button
               onClick={() => setSelected(null)}
-              className="px-8 py-3 bg-black text-white rounded-lg text-lg"
+              className="rounded-lg bg-black px-8 py-3 text-lg text-white"
             >
               Close
             </button>

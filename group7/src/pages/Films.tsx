@@ -11,6 +11,7 @@ interface Film {
   director: string;
   genre: string;
   language: string;
+  rating?: number;
   poster?: string;
 }
 
@@ -26,11 +27,28 @@ const getImageUrl = (filename: string | undefined) => {
   }
 };
 
+// get stars from filmdb
+const renderStars = (rating: number | undefined) => {
+  if (!rating) return "☆☆☆☆☆";
+  const fullStars = Math.floor(rating);
+  return "★".repeat(fullStars) + "☆".repeat(5 - fullStars);
+};
+
 export default function Films() {
   const location = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
-  const [likedFilms, setLikedFilms] = useState<number[]>([]);
+  const FAVORITES_STORAGE_KEY = "profileFavorites";
+
+  const [likedFilms, setLikedFilms] = useState<number[]>(() => {
+    const saved = localStorage.getItem(FAVORITES_STORAGE_KEY);
+    return saved ? JSON.parse(saved) : [];
+  });
   const [filteredFilms, setFilteredFilms] = useState<Film[]>(filmsDB.FilmsDB);
+
+  // saves favories to local storage
+  useEffect(() => {
+    localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(likedFilms));
+  }, [likedFilms]);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -100,9 +118,12 @@ export default function Films() {
   const toggleLike = (id: number, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setLikedFilms((prev) =>
-      prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id],
-    );
+    setLikedFilms((prev) => {
+      const updated = prev.includes(id)
+        ? prev.filter((f) => f !== id)
+        : [...prev, id];
+      return updated;
+    });
   };
 
   return (
@@ -173,8 +194,12 @@ export default function Films() {
 
                       {/* STARS */}
                       <div className="movie-rating">
-                        <span className="stars">★★★★★</span>
-                        <span className="rating-score">4.5/5</span>
+                        <span className="stars">
+                          {renderStars(film.rating)}
+                        </span>
+                        <span className="rating-score">
+                          {film.rating ?? "N/A"}/5
+                        </span>
                       </div>
 
                       <p className="review-snippet">
@@ -188,9 +213,7 @@ export default function Films() {
                         className={`btn-like ${isLiked ? "liked" : ""}`}
                         aria-label={isLiked ? "Unlike" : "Like"}
                       >
-                        <span aria-hidden="true">
-                          {isLiked ? "❤️" : "🤍"}
-                        </span>
+                        <span aria-hidden="true">{isLiked ? "❤️" : "🤍"}</span>
                       </button>
                     </div>
                   </article>
