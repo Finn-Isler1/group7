@@ -3,15 +3,15 @@ import { useState } from "react";
 import usersDB from "../data/users.json";
 import { SearchBar } from "../components/SearchBar.tsx";
 
-export default function Following() {
+export default function Followers() {
   const user = usersDB.UsersDB[0];
 
-  // Make following ALWAYS an array
-  const rawFollowing = user.following;
-  const following = Array.isArray(rawFollowing)
-    ? rawFollowing
-    : rawFollowing
-    ? [rawFollowing]
+  // Make followers ALWAYS an array
+  const rawFollowers = user.followers;
+  const followers = Array.isArray(rawFollowers)
+    ? rawFollowers
+    : rawFollowers
+    ? [rawFollowers]
     : [];
 
   // Safe lookup
@@ -27,7 +27,7 @@ export default function Following() {
     return null;
   };
 
-  let list = following.map(lookupUser).filter(Boolean);
+  let list = followers.map(lookupUser).filter(Boolean);
 
   // Search
   const [searchQuery, setSearchQuery] = useState("");
@@ -41,22 +41,22 @@ export default function Following() {
 
   return (
     <section className="p-4 space-y-6">
-      <h1 className="text-2xl font-bold">Following</h1>
+      <h1 className="text-2xl font-bold">Followers</h1>
 
       {/* Navigation */}
       <div className="flex gap-4 text-sm">
         <Link to="/friends" className="hover:underline">Friends</Link>
-        <Link to="/followers" className="hover:underline">Followers</Link>
-        <Link to="/following" className="underline font-semibold">Following</Link>
+        <Link to="/followers" className="underline font-semibold">Followers</Link>
+        <Link to="/following" className="hover:underline">Following</Link>
       </div>
 
       <SearchBar
         onSearch={setSearchQuery}
-        placeholder="Search following..."
+        placeholder="Search followers..."
       />
 
       <ul className="space-y-3">
-        {list.length === 0 && <p>You are not following anyone.</p>}
+        {list.length === 0 && <p>No followers found.</p>}
 
         {list.map((person: any) => (
           <li key={person.id} className="flex items-center gap-3">

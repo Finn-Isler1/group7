@@ -57,10 +57,12 @@ export default function Profile() {
             </div>
           </div>
 
+          {/* BUTTONS — Updated with Achievements */}
           <div className="profile-buttons">
             <button className="btn-primary">
               <span>Edit Profile</span>
             </button>
+
             <button
               className="btn-outline"
               onClick={() => {
@@ -69,6 +71,13 @@ export default function Profile() {
             >
               <span>Settings</span>
             </button>
+
+            {/* NEW ACHIEVEMENTS BUTTON */}
+            <Link to="/achievements">
+              <button className="btn-outline">
+                <span>Achievements</span>
+              </button>
+            </Link>
           </div>
         </header>
 
@@ -206,76 +215,8 @@ export default function Profile() {
         </section>
       </div>
 
-      {/* Secondary layout (unchanged except avatar src remains) */}
-      <section className="space-y-6 p-4">
-        {/* <header className="flex items-center gap-6">
-          <img
-            src={profilePicUrl}
-            alt={`${currentUser.username}'s avatar`}
-            className="h-20 w-20 rounded-full object-cover"
-            loading="lazy"
-          />
-
-          <div className="flex flex-col gap-2">
-            <h1 className="text-2xl font-bold">{currentUser.username}</h1>
-
-            <div className="flex gap-6">
-              <Link to="/friends?tab=followers">
-                <p className="cursor-pointer text-sm hover:underline">
-                  Followers: {followersCount}
-                </p>
-              </Link>
-
-              <Link to="/friends?tab=following">
-                <p className="cursor-pointer text-sm hover:underline">
-                  Following: {followingCount}
-                </p>
-              </Link>
-            </div>
-
-            <div className="flex gap-6 text-sm">
-              <p>Films Watched (All Time): {filmsAllTime}</p>
-              <p>Films Watched (This Year): {filmsThisYear}</p>
-            </div>
-
-            <div className="mt-2 flex gap-3">
-              <button className="rounded bg-gray-200 px-3 py-1">
-                Share Profile
-              </button>
-
-              <Link to="/settings">
-                <button className="rounded bg-gray-200 px-3 py-1">
-                  Settings
-                </button>
-              </Link>
-
-              <Link to="/achievements">
-                <button className="rounded bg-gray-200 px-3 py-1">
-                  Achievements
-                </button>
-              </Link>
-            </div>
-          </div>
-        </header> */}
-
-        {/* Friends List */}
-        {/* <section>
-          <h2 className="mb-3 text-lg font-semibold">
-            Your Friends ({friends.length})
-          </h2>
-
-          <ul className="space-y-3">
-            {friends.map((friend) => (
-              <li key={friend.id} className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-gray-300" />
-                <Link to={`/friends/${friend.id}`} className="hover:underline">
-                  {friend.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section> */}
-      </section>
+      {/* Secondary layout (left as-is, commented out) */}
+      <section className="space-y-6 p-4"></section>
     </>
   );
 }
