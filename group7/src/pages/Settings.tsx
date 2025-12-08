@@ -15,7 +15,7 @@ export default function Settings() {
   const [privateAccount, setPrivateAccount] = useState(false);
 
   return (
-    <div className="flex min-h-screen flex-col items-center bg-gradient-to-br pt-36 pb-28">
+    <div className="flex min-h-screen flex-col items-center bg-linear-to-br pt-36 pb-28">
       {/* Centered Container */}
       <div className="flex w-full max-w-4xl flex-col items-center px-6 py-12">
         <div className="FilmDetailsTopBar mb-12 w-full">

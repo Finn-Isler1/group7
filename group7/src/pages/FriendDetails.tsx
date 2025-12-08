@@ -78,7 +78,7 @@ export default function FriendDetails() {
       </div>
 
       {/* Hero Section */}
-      <header className="from-primary-color/10 to-white-color relative flex min-h-[60vh] items-center bg-gradient-to-br">
+      <header className="from-primary-color/10 to-white-color relative flex min-h-[60vh] items-center bg-linear-to-br">
         <div className="content-container flex flex-col items-center gap-8 py-16 lg:flex-row">
           <img
             src={pictures[user.id]}

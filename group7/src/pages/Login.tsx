@@ -12,10 +12,8 @@ import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
   AlertDialogAction,
-  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
-  AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
@@ -45,7 +43,7 @@ export default function Login() {
 
   return (
     <>
-      <div className="flex min-h-screen flex-col items-center bg-gradient-to-br pt-28 pb-20">
+      <div className="flex min-h-screen flex-col items-center bg-linear-to-br pt-28 pb-20">
         {/* HERO / TITLE */}
         <header className="flex w-full flex-col items-center justify-center px-6 pt-32 pb-12 text-center">
           <h1 className="mb-6 text-6xl font-black tracking-tight text-gray-900 md:text-7xl lg:text-8xl">

@@ -1,20 +1,8 @@
 // Profile.tsx - enhanced Letterboxd-style profile with improved responsive layout
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import usersDB from "../data/users.json";
 import filmsDB from "../data/films.json";
 import FilmLogs from "@/components/FilmLogs";
-
-interface Film {
-  id: number;
-  title: string;
-  director: string;
-  year: number;
-  genre: string;
-  language: string;
-  rating: number;
-  poster?: string;
-}
 
 const FAVORITES_STORAGE_KEY = "profileFavorites";
 
@@ -36,21 +24,6 @@ export default function Profile() {
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
-
-  const currentUser = usersDB.UsersDB[0];
-
-  const followersCount = currentUser.followers?.length ?? 237;
-  const followingCount = currentUser.following?.length ?? 35;
-  const filmsAllTime = currentUser.filmsAllTime ?? 31;
-  const filmsThisYear = currentUser.filmsThisYear ?? 9;
-
-  const friends = currentUser.friends ?? [
-    { id: 1, name: "John Smith" },
-    { id: 2, name: "Emma Jones" },
-    { id: 3, name: "Jake" },
-    { id: 4, name: "Tina" },
-    { id: 5, name: "Ricky" },
-  ];
 
   // Avatar
   const profilePicUrl =
