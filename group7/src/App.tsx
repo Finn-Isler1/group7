@@ -13,7 +13,6 @@ import FilmDetails from "./pages/FilmDetails";
 import Friends from "./pages/Friends";
 import FriendDetails from "./pages/FriendDetails";
 import Profile from "./pages/Profile";
-import Testing from "./pages/Testing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import SearchResults from "./pages/SearchResults";
@@ -58,9 +57,6 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/achievements" element={<Achievements />} />
-
-          {/* Extra Testing Page */}
-          <Route path="/testing" element={<Testing />} />
 
           {/* Film-specific reviews page */}
           <Route path="/films/:id/reviews" element={<AllReviews />} />
